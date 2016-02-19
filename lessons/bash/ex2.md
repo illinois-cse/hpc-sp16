@@ -6,6 +6,7 @@
 
 ###Question:
 
+
 - What is the output of the closing `ls` command in the sequence shown below?
 
 ```
@@ -13,16 +14,16 @@ $ pwd
 /home/thesis/data
 
 $ touch proteins.dat
-   
+
 $ ls
 proteins.dat
     
 $ mkdir recombine
-    
+
 $ mv proteins.dat recombine
-    
+
 $ cp recombine/proteins.dat ../proteins-saved.dat
-    
+
 $ ls
 ```
 
@@ -34,7 +35,7 @@ analyzed/  fructose.dat    raw/   sucrose.dat
 ```
 
     
-- What command(s) could you run so that the commands below will produce the output shown?
+- What command(s) (such as `rm`, `mv`) could you run so that the commands below will produce the output shown?
 
 ```
 $ ls

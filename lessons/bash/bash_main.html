@@ -6,7 +6,7 @@
 <style type="text/css">
 body {
   font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -302,58 +302,253 @@ sup {
 	}
 }
 </style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
 </head>
 <body>
 <h1 id="toc_0">Introduction to Bash (The Linux Command Line)</h1>
 
 <p><img src="./img/dilbert-1486.strip.gif" alt=""></p>
 
-<h2 id="toc_1">Introduction</h2>
-
-<h4 id="toc_2">Objectives</h4>
+<h2 id="toc_1">Contents</h2>
 
 <ul>
-<li>  Explain how the shell relates to the keyboard, the screen, the operating system, and users&#39; programs.</li>
-<li>  Explain when and why command-line interfaces should be used instead of graphical interfaces.</li>
+<li><p><strong>Introduction</strong></p></li>
+<li><p><strong>Files and Directories</strong></p></li>
+<li><p><strong>Manipulating Files and Directories</strong></p></li>
+<li><p><strong>Pipes and Filters</strong></p></li>
+<li><p><strong>Shell Scripts</strong></p></li>
+<li><p><strong>Finding Things</strong></p></li>
 </ul>
 
-<h4 id="toc_3">Discussion</h4>
+<h2 id="toc_2">Introduction</h2>
 
-<ul>
-<li>  A shell is a program whose primary purpose is to read commands and run other programs.</li>
-<li>  The shell&#39;s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.</li>
-<li>  The shell&#39;s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.</li>
-</ul>
+<p>A shell is a program that let&rsquo;s the user interact with the operating system through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (<strong>B</strong>ourne <strong>A</strong>gain <strong>SH</strong>ell). To begin, let&rsquo;s figure out which shell we are using by typing <code>echo $SHELL</code> in the command line: </p>
 
-<h2 id="toc_4">Files &amp; Directories</h2>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ echo $SHELL
+/bin/bash
+[NetID@linux-a1 ~]$</code></pre></div>
 
-<h4 id="toc_5">Objectives</h4>
+<p><code>echo</code> is a command that prints a string to the terminal. In this case the shell printed the environment variable <code>$SHELL</code>. We can also tell the shell to print anything we like such as</p>
 
-<ul>
-<li>  Explain the similarities and differences between a file and a directory.</li>
-<li>  Translate an absolute path into a relative path and vice versa.</li>
-<li>  Construct absolute and relative paths that identify specific files and directories.</li>
-<li>  Explain the steps in the shell&#39;s read-run-print cycle.</li>
-<li>  Identify the actual command, flags, and filenames in a command-line call.</li>
-<li>  Demonstrate the use of tab completion, and explain its advantages.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ echo Hello World!
+Hello World!
+[NetID@linux-a1 ~]$</code></pre></div>
 
-<h4 id="toc_6">Discussion</h4>
+<p>To print to the screen who the current user is type <code>whoami</code> and your NetID should be printed to the terminal. If you are using your personal computer then the username will be printed to the terminal. </p>
 
-<ul>
-<li>  The file system is responsible for managing information on the disk.</li>
-<li>  Information is stored in files, which are stored in directories (folders).</li>
-<li>  Directories can also store other directories, which forms a directory tree.</li>
-<li>  <code>/</code> on its own is the root directory of the whole filesystem.</li>
-<li>  A relative path specifies a location starting from the current location.</li>
-<li>  An absolute path specifies a location from the root of the filesystem.</li>
-<li>  Directory names in a path are separated with <code>/</code> on Unix, but <code>\</code> on Windows.</li>
-<li>  <code>..</code> means &quot;the directory above the current one&quot;; <code>.</code> on its own means &quot;the current directory&quot;.</li>
-<li>  Most files&#39; names are <code>something.extension</code>. The extension isn&#39;t required, and doesn&#39;t guarantee anything, but is normally used to indicate the type of data in the file.</li>
-<li>  Most commands take options (flags) which begin with a <code>-</code>.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ whoami
+NetID
+[NetID@linux-a1 ~]$ </code></pre></div>
 
-<h3 id="toc_7">Unix File System</h3>
+<p>Similarly, if we wanted to know who else was logged into the computer type <code>who</code> and a list of the users should print to the terminal. While this workshop will not cover every command the <code>man</code> will become your best friend. The <code>man</code> command prints to the screen the manual page for all other commands recognized by the shell. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ man mv
+
+NAME 
+    mv - move (rename) files
+SYNOPSIS
+    mv [OPTION] ... [-T] SOURCE DEST
+    .
+    .
+    .</code></pre></div>
+
+<p>This command will help you later on when you want to figure out how to use a specific command. </p>
+
+<h2 id="toc_3">Files and Directories</h2>
+
+<p>When moving around a linux system you will be encountered by files and directories. The linux system considers everything to be a file with directories being files that contain files. The following section will discuss how to file system is set up and how to navigate the file system. </p>
+
+<p>The first thing we probably want to know is where are we within the file system. The command <code>pwd</code> will <strong>p</strong>rint the <strong>w</strong>orking <strong>d</strong>irectory. For example: </p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ pwd
+/home/NetID
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>It is important to note that the directory that is printed to the terminal starts with <code>/</code>. This refers to the root directory, or the outermost directory while everything after a <code>/</code> is a subdirectory. In this case the <code>NetID</code> is a subdirectory of <code>home</code> and so on. </p>
+
+<p>When refering to the location of a file or directory there are two ways in which you can refernce the path to the file. The <em>absolute</em> path refers to a file or directory from the root directory. The <em>relative</em> path refers to a file or directory from the current directory. </p>
+
+<h3 id="toc_4">Unix File System</h3>
 
 <p><img src="./img/file-system-01.png" alt=""></p>
 
@@ -368,7 +563,7 @@ sup {
 
 <p><br></p>
 
-<h4 id="toc_8">Within any one of these folders we can identify a subsidiary structure:</h4>
+<h4 id="toc_5">Within any one of these folders we can identify a subsidiary structure:</h4>
 
 <p><img src="./img/file-system-02.png" alt=""></p>
 
@@ -381,128 +576,422 @@ And then we can drill down all the way to something that perhaps looks more fami
 
 <p><img src="./img/file-system-03.png" alt=""></p>
 
-<h3 id="toc_9">Do <a href="./ex1.html">Exercise #1</a></h3>
+<p>To navigate this system on the command line (as opposed to in a file browser), you only need a few basic commands: <code>pwd</code> ,<code>ls</code> ,<code>cd</code>. </p>
 
-<h2 id="toc_10">Create files and folders</h2>
+<p>You already learned that <code>pwd</code> prints the working directory. To list the contents within a directory use the <code>ls</code> command. For example:</p>
 
-<h4 id="toc_11">Objectives</h4>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ ls 
+theme.mp3 boss.mp3
+[NetID@linux-a1 music]$ </code></pre></div>
+
+<p>Often a command will take options or flags which begin with <code>-</code>. Type <code>ls -l</code> to print a long list of the contentes within a directory. </p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ ls -l
+total 2
+drwx------. 2 NetID ews 80 Aug 15 2015 boss.mp3
+drwx------. 2 NetID ews 80 Oct  6 2015 theme.mp3
+[NetID@linux-a1 music]$</code></pre></div>
+
+<p>Other flags such as <code>-a</code>,<code>-t</code>, or <code>-r</code> display the same contents with some modifications (Refer to the <code>man</code> pages for a full list of all the flags). The <code>-a</code> flag will display all files including the hidden files. </p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ ls -a
+.       boss.mp3        theme.mp3
+..      .DS_Store
+[NetID@linux-a1 music]$</code></pre></div>
+
+<p>To physically move from one directory to another you can use the <code>cd</code> command, as in <strong>c</strong>hange <strong>d</strong>irectory. This can be used in the following way:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 home]$ cd sonic
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>Notice that the current directory has changed. We can direct <code>cd</code> to a directory through an absolute path. For example: </p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ cd /home/sonic/music
+[NetID@linux-a1 music]$</code></pre></div>
+
+<p>A few handy shortcuts when moving around the file system: </p>
+
+<p><code>.</code> refers to the current directory</p>
+
+<p><code>..</code> refers to the directory above the current directory</p>
+
+<p><code>~</code> refers to the home directory</p>
+
+<p><em>Tab completion</em> will become your best friend when using a linux system. When typing a path becomes tedious you can use tab completion to auto-complete the directory or file. This becomes especially useful for long paths and filenames. </p>
+
+<h3 id="toc_6">Do <a href="./ex1.html">Exercise #1</a></h3>
+
+<h2 id="toc_7">Manipulating Files and Directories</h2>
+
+<p>Over time you will start manipulating files and directories. This will include creating, copying, moving, removing and renaming files and directories. It is essential to have an organized file system especially when you start dealing with multiple files from multiple processes. This section will discuss the baisc simple commands necessary to manipulate files and directories. </p>
+
+<p>The first basic command is <code>mkdir</code>. This command <strong>m</strong>a<strong>k</strong>es a <strong>dir</strong>ectory in the file system. Like many other commands there are multiple flags that can be used with this command, however the basic useage is <code>mkdir directory_name</code>. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ ls
+bin data usr
+[NetID@linux-a1 ~]$ mkdir home
+[NetID@linux-a1 ~$ ls
+bin data home usr
+[NetID@linux-a1 ~]$</code></pre></div>
+
+<p>To <strong>c</strong>o<strong>p</strong>y a file or directory you can use the <code>cp</code> command. This second basic command allows the user to copy a file or directory and specify a desination. This command has the format <code>cp source destination</code>. For Example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ ls 
+bin data home usr
+[NetID@linux-a1 ~]$ cp home thesis
+bin data home thesis usr
+[NetID@linux-a1 ~]$</code></pre></div>
+
+<p>The next basic command is <code>mv</code> which easily enough stands for <strong>m</strong>o<strong>v</strong>e. Similar to <code>cp</code> in this command you specify a source and a destination however unlike <code>cp</code> it will only keep the desitnation. For this reason <code>mv</code> is used to rename files. To move a file you can type the following in the command line:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ ls 
+bin data home thesis usr
+[NetID@linux-a1 ~]$ mv thesis home/
+[NetID@linux-a1 ~]$ ls 
+bin data home usr
+[NetID@linux-a1 ~]$ cd home 
+[NetID@linux-a1 home]$ ls
+thesis
+[NetID@linux-a1 home]$</code></pre></div>
+
+<p>Notice that the directory <code>thesis</code> is no longer in the root directory but instead in the home directory. To rename a file you can specify the <code>source</code> as long as the source is not within the current directory. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 home]$ ls
+thesis
+[NetID@linux-a1 home]$ mv thesis paper
+[NetID@linux-a1 home]$ ls
+paper
+[NetID@linux-a1 home]$</code></pre></div>
+
+<p>Finally there a few different ways to remove a file or directory. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls
+cse.txt mend.cfg music papers school thesis
+[NetID@linux-a1 sonic]$ rm mend.cfg
+[NetID@linux-a1 sonic]$ ls
+cse.txt music papers school thesis 
+[NetID@linux-a1 sonic]$ rm thesis
+rm: thesis: is a directory
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>You simplify cannot remove a directory using the <code>rm</code> command. It turns out that to remove a directory there are is a special <code>rmdir</code> command. </p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ rmdir thesis
+[NetID@linux-a1 sonic]$ ls
+cse.txt music papers school
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>Another option is to use the flag <code>-d</code> which attempts to remove directories as well as other file types. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ rm -d school
+[NetID@linux-a1 sonic]$ ls
+cse.txt music papers
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>We now know how copy, move, rename, and remove a file. But what about creating a new file? There are a few different ways you can create a new file. To create a blank file you can use the <code>touch</code> command. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ touch ae410.txt
+[NetID@linux-a1 sonic]$ ls
+ae410.txt cse.txt music papers
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>In some cases the <code>touch</code> command is used to update the timestamp on a file if the file already exists. </p>
+
+<p>To open a new file you can use a different editors. For exmaple if I wanted to open a new file and begin editting it I could use the text editors <code>vi</code> <code>vim</code> <code>nano</code> among others. In this case lets use <code>vi</code> to open a new file called <code>cse450.txt</code>:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ vi cse450.txt</code></pre></div>
+
+<p>The <code>cat</code> command allows you to view but not edit a file. For example if we want to view the file <code>cse450.txt</code> we can:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ cat cse450.txt
+This is what is inside the cse450.txt file.
+[NetID@linux-a1 sonic]$</code></pre></div>
+
+<p>Lets say that there are a lot of files that you want to copy, move, rename, or remove. We can use what are called <em>Wildcards</em>. </p>
 
 <ul>
-<li>  Create a directory hierarchy that matches a given diagram.</li>
-<li>  Create files in that hierarchy using an editor or by copying and renaming existing files.</li>
-<li>  Display the contents of a directory using the command line.</li>
-<li>  Delete specified files and/or directories.</li>
+<li><code>*</code> - represents zero or more characters</li>
+<li><code>?</code> - represents a single character</li>
+<li><code>[]</code> - represents a range of characters</li>
 </ul>
 
-<h4 id="toc_12">Discussion</h4>
+<p>These commands allow the user to ask for a specifc pattern or set of files and directories. For example lets say we have the following in our directory, </p>
 
-<ul>
-<li>  Unix documentation uses <code>^A</code> to mean &quot;control-A&quot;.</li>
-<li>  The shell does not have a trash bin: once something is deleted, it&#39;s really gone.</li>
-<li>  Nano is a very simple text editor—please use something else for real work.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls
+ae410.txt cse.txt dir5 dir37 dir40 
+file1.txt file2.txt music papers
+[NetID@linux-a1 sonic]$</code></pre></div>
 
-<h3 id="toc_13">Do <a href="./ex2.html">Exercise #2</a></h3>
+<p>And we want to know what files we have that start with the letter <code>f</code> we can use the <code>*</code> command. </p>
 
-<h2 id="toc_14">Pipes &amp; filters</h2>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls f*
+file1.txt file2.txt
+[NetID@linux-a1 sonic]$</code></pre></div>
 
-<h4 id="toc_15">Objectives</h4>
+<p>If we cant to find all files that have exactly 3 characters as an extension we can use the <code>?</code> command:</p>
 
-<ul>
-<li>  Redirect a command&#39;s output to a file.</li>
-<li>  Process a file instead of keyboard input using redirection.</li>
-<li>  Construct command pipelines with two or more stages.</li>
-<li>  Explain what usually happens if a program or pipeline isn&#39;t given any input to process.</li>
-<li>  Explain Unix&#39;s &quot;small pieces, loosely joined&quot; philosophy.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls *.???
+ae410.txt cse.txt file1.txt file2.txt
+[NetID@linux-a1 sonic]$</code></pre></div>
 
-<h4 id="toc_16">Discussion</h4>
+<p>The last wildcard listed above is the <code>[]</code> command which can be used to specify a list of characters that you want to find. For example if you want to remove all files that start with the letter <strong>a</strong> and <strong>c</strong> you can type in the command line</p>
 
-<ul>
-<li>  <code>command &gt; file</code> redirects a command&#39;s output to a file.</li>
-<li>  <code>first | second</code> is a pipeline: the output of the first command is used as the input to the second.</li>
-<li>  The best way to use the shell is to use pipes to combine simple single-purpose programs (filters).</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls
+ae410.txt cse.txt dir5 dir37 dir40 
+file1.txt file2.txt music papers
+[NetID@linux-a1 sonic]$ rm [ac]*
+[NetID@linux-a1 sonic]$ ls
+dir5 dir37 dir40 file1.txt 
+file2.txt music papers
+[NetID@linux-a1 sonic]$ </code></pre></div>
 
-<h3 id="toc_17">Do <a href="./ex3.html">Exercise #3</a></h3>
+<p>As a reminder if there is a command that you don&rsquo;t know exactly how to use or if you want to find out what the flags are reference the <code>man</code> pages. </p>
 
-<h2 id="toc_18">Loops</h2>
+<h3 id="toc_8">Do <a href="./ex2.html">Exercise #2</a></h3>
 
-<h4 id="toc_19">Objectives</h4>
+<h2 id="toc_9">Pipes and Filters</h2>
 
-<ul>
-<li>  Write a loop that applies one or more commands separately to each file in a set of files.</li>
-<li>  Trace the values taken on by a loop variable during execution of the loop.</li>
-<li>  Explain the difference between a variable&#39;s name and its value.</li>
-<li>  Explain why spaces and some punctuation characters shouldn&#39;t be used in files&#39; names.</li>
-<li>  Demonstrate how to see what commands have recently been executed.</li>
-<li>  Re-run recently executed commands without retyping them.</li>
-</ul>
+<p>When we type a command or run a program we will get an output printed to the terminal. Pipes can redirect a command or a program&rsquo;s output to a file for future reference or to be used at a later time. In this section you will learn how to use the pipes and how to combine pipes into powerful single-purpose programs. </p>
 
-<h4 id="toc_20">Discussion</h4>
+<p>The first command to learn is <code>&gt;</code>. This pipe, used as <code>command &gt; file</code> redirects a command&rsquo;s output to a file. For example:</p>
 
-<ul>
-<li>  A <code>for</code> loop repeats commands once for every thing in a list.</li>
-<li>  Every <code>for</code> loop needs a variable to refer to the current &quot;thing&quot;.</li>
-<li>  Use <code>$name</code> to expand a variable (i.e., get its value).</li>
-<li>  Do not use spaces, quotes, or wildcard characters such as <code>*</code> or <code>?</code> in filenames, as it complicates variable expansion.</li>
-<li>  Give files consistent names that are easy to match with wildcard patterns to make it easy to select them for looping.</li>
-<li>  Use the up-arrow key to scroll up through previous commands to edit and repeat them.</li>
-<li>  Use <code>history</code> to display recent commands, and <code>!number</code> to repeat a command by number.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ ls  
+theme.mp3 boss.mp3
+[NetID@linux-a1 music]$ ls &gt; output.txt
+[NetID@linux-a1 music]$ cat output.txt
+theme.mp3
+boss.mp3
+[NetID@linux-a1 music]$ </code></pre></div>
 
-<h3 id="toc_21">Do <a href="./ex4.html">Exercise #4</a></h3>
+<p>Sometimes you run into the problem of redirection mutliple outputs to a single file. If you use the <code>&gt;</code> command the original file contents will be overwritten. To append new outputs to a file you can use the command <code>&gt;&gt;</code>. For example:</p>
 
-<h2 id="toc_22">Shell Scripts</h2>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ cat output.txt
+theme.mp3
+boss.mp3
+[NetID@linux-a1 music]$ echo Hello! &gt;&gt; output.txt
+[NetID@linux-a1 music]$ cat output.txt
+theme.mp3
+boss.mp3
+Hello!
+[NetID@linux-a1 music]$ </code></pre></div>
 
-<h4 id="toc_23">Objectives</h4>
+<p>If you would like to read the contents of a file to use in your command you can use the <code>&lt;</code> command. In this case instead of redirecting an output to a file you are redirecting a file&rsquo;s contents into the input of command. For example:</p>
 
-<ul>
-<li>  Write a shell script that runs a command or series of commands for a fixed set of files.</li>
-<li>  Run a shell script from the command line.</li>
-<li>  Write a shell script that operates on a set of files defined by the user on the command line.</li>
-<li>  Create pipelines that include user-written shell scripts.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 music]$ rm *.mp3 &lt; output.txt 
+[NetID@linux-a1 music]$ cat output.txt
+Hello!
+[NetID@linux-a1 music]$ </code></pre></div>
 
-<h4 id="toc_24">Discussion</h4>
+<p>Sometimes in order to combine two command line steps you can use a pipeline. That is you can use the output of one file into the input of another file using the <code>|</code> command. For example:</p>
 
-<ul>
-<li>  Save commands in files (usually called shell scripts) for re-use.</li>
-<li>  <code>bash filename</code> runs the commands saved in a file.</li>
-<li>  <code>$*</code> refers to all of a shell script&#39;s command-line parameters.</li>
-<li>  <code>$1</code>, <code>$2</code>, etc., refer to specified command-line parameters.</li>
-<li>  Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.</li>
-</ul>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 sonic]$ ls
+dir5 dir37 dir40 file1.txt 
+file2.txt music papers
+[NetID@linux-a1 sonic]$ ls | head -3
+dir5 dir37 dir40
+[NetID@linux-a1 sonic]$ </code></pre></div>
 
-<h3 id="toc_25">Do <a href="./ex5.html">Exercise #5</a></h3>
+<h3 id="toc_10">Do <a href="./ex3.html">Exercise #3</a></h3>
 
-<h2 id="toc_26">Finding Things</h2>
+<h2 id="toc_11">Shell Scripts</h2>
 
-<h4 id="toc_27">Objectives</h4>
+<p>There will come a time when using bash that typing in specific commands in the command line will become cumbersome. This is where shell scripts come in. A user can write a series of commands in a shell script that the computer will then execute sequencially. It is important to know that commands that work on the command line will work the same way when implemented in a script. Likewise if a series of commands are implemented in a script, the same result will occur if the user inputs the commands manually in the command line. The following section will introduce the concept of shell scripts, how to write them, and how to exectue them. </p>
 
-<ul>
-<li>  Use <code>grep</code> to select lines from text files that match simple patterns.</li>
-<li>  Use <code>find</code> to find files whose names match simple patterns.</li>
-<li>  Use the output of one command as the command-line parameters to another command.</li>
-<li>  Explain what is meant by &quot;text&quot; and &quot;binary&quot; files, and why many common tools don&#39;t handle the latter well.</li>
-</ul>
+<p>Consider the following simple script:</p>
 
-<h4 id="toc_28">Discussion</h4>
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+echo This script lists the files in the directory
+ls</code></pre></div>
 
-<ul>
-<li>  Use find to find files and directories, and grep to find text patterns in files.</li>
-<li>  <code>$(command)</code> inserts a command&#39;s output in place.</li>
-<li>  man command displays the manual page for a given command.</li>
-</ul>
+<p>Lets break down the script and how its works. In the first line you&rsquo;ll see <code>#!/bin/bash</code> is written. Every shell script should start with this exact line, this tells Linux which interpreter to use for this file. The second command is the <code>echo</code> command which prints everything that follows it. And finally we have the <code>ls</code> command which just lists the directory. If a user were to execute this series of command manually it would look like this:</p>
 
-<h3 id="toc_29">Do <a href="./ex6.html">Exercise #6</a></h3>
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ echo This script lists the files in the directory
+This script lists the files in the directory
+[NetID@linux-a1 ~]$ ls
+bin data home usr
+[NetID@linux-a1 ~]</code></pre></div>
 
-<h1 id="toc_30">Congratulations! Now you are a Linux-guru<sup>*</sup>!</h1>
+<p>Remember that Linux is an extensionless system therefore when writing a shell script you don&rsquo;t have to append the <code>.sh</code> extension, however doing this will help you identify which files are shell scripts and which are not. </p>
 
-<p>*&nbsp; :)
-<img src="./img/xkcd-cautionary.png" alt=""></p>
+<p>In a shell script lines that start with <code>#</code> are considered comments and will not be interpreted. There are some exeptions however, including the first line of every script. </p>
 
+<p>You can also declare variables within a shell script. This can be done in the following way:</p>
 
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+# Declare variable
+str=&#39;Hello World!&#39;
+echo $str</code></pre></div>
+
+<p>Notice that when we are defining the variable there are no spaces on either side of the <code>=</code> sign. Addtionally when you want to refer to the varible you have to place <code>$</code> sign right infront of the variable to signify that you are refereing to a variable. The previous script will output:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ ./script.sh
+Hello World!
+[NetID@linux-a1 ~]$</code></pre></div>
+
+<p>To run the shell script we typed <code>./</code> and then the filename. Remember a few sections back that <code>.</code> specifies the current directory. When executing a shell script you are essentially telling the computer that the script you are attempting to execute is in the current directory. An absolute path would also work. If the script in is the directory above your current directory you could use <code>../</code> to run the script. </p>
+
+<p>It may be the case that when you write a shell script your system does not yet know it&rsquo;s an executable script. To change this adjust the permissions on the file by typing:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ chmod +x script.sh
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>There are a few automaticly set variables when running a script. These are: </p>
+
+<p><code>$0</code>: The name script filename</p>
+
+<p><code>$1</code>&hellip;<code>$9</code>: The command line arguements</p>
+
+<p><code>$#</code>: The number of command line arguements</p>
+
+<p><code>$*</code>: All of the command line arguements</p>
+
+<p>As in any other progamming language you can also implement <code>if</code>,<code>else</code>,<code>fi</code> statments, <code>for</code> loops, and <code>while</code> loops. For example you can write the following in a script:</p>
+
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+count=100
+if [ $count -eq 100 ]
+then 
+    echo &quot;Count is 100&quot;
+else 
+    echo &quot;Count is not 100&quot;
+fi</code></pre></div>
+
+<p>This script defines the variable <code>count</code> and executes the <code>echo</code> command if the variable <code>count</code> equals a certain value. Notice that the statement ends with <code>fi</code>. Sometimes it is useful to run a command until a certain requirement is met. For example, lets consider the following <code>while</code> loop:</p>
+
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+count=1
+while(($n &lt;= 5))
+do 
+    echo &quot;This loop has run $n times&quot;
+    n=$((n+1))
+done</code></pre></div>
+
+<p>The output of this script will be:</p>
+
+<div><pre class="line-numbers"><code class="language-none">This loop has run 1 times
+This loop has run 2 times
+This loop has run 3 times
+This loop has run 4 times
+This loop has run 5 times</code></pre></div>
+
+<p>Take a look at the structure of the while loop. The basic structure of the while loop can be broken down to:</p>
+
+<div><pre class="line-numbers"><code class="language-none">while &lt;condition&gt;
+do
+    &lt;commands&gt;
+done</code></pre></div>
+
+<p>Similar to the <code>while</code> loop, the <code>for</code> loop will execute a command a command a number of times. However instead of executing the command untl a condition is met a <code>for</code> loop will only execute the command for a pre-specified number of times. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+for value in {1..5}
+do 
+    echo &quot;This loop has run $n times&quot;
+done     </code></pre></div>
+
+<p>This loop will produce the exact same result as the <code>while</code> loop. However you are not limited to just numerical values. You can also execute a command based on the items within a variable. This could be </p>
+
+<div><pre class="line-numbers"><code class="language-none">names=&#39;Name1 Name2 Name3&#39;</code></pre></div>
+
+<p>More advanced loop could include the <code>break</code> and <code>continue</code> commands. The <code>break</code> command tells bash to exit the loop when a condition is met. The <code>continue</code> command tells bash to skip the current iteration and move on to the next iteration within the loop. For example:</p>
+
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+for value in {1..10}
+do 
+    if [$value -eq 5]
+    then
+        echo The current count is $value
+        continue
+    fi
+    if [$value -eq 7]
+    then
+        echo The count is $value
+        echo Now exiting loop
+        break
+    fi
+done</code></pre></div>
+
+<p>You can also prompt the user to select from a list of choices using the <code>select</code>,<code>do</code>,<code>done</code> sequence. For example the following script will prompt the user to run or quit:</p>
+
+<div><pre class="line-numbers"><code class="language-none">#!/bin/bash
+options=&#39;Continue Quit&#39;
+PS3=&#39;Choose 1) or 2) to Continue or Quit: &#39;
+select option in $options
+do
+    if [ $option == &#39;Continue&#39; ]
+    then
+        continue
+    fi
+    if [ $option == &#39;Quit&#39; ]
+    then
+        break
+    fi
+done</code></pre></div>
+
+<h3 id="toc_12">Do <a href="./ex5.html">Exercise #5</a></h3>
+
+<h2 id="toc_13">Finding Things</h2>
+
+<p>In this last section of the tutorial you are going to learn about finding useful data within your files. </p>
+
+<p>The first commmand and most powerful is the <code>grep</code> command. Lets say you want to find the line within a file that contains a specific string. We can then use the <code>grep</code> command to print that whole line to the terminal. For example lets consider the following file and its contents:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ cat example.txt
+This line is about cars.
+This line is about airplanes.
+This line only has one sentence.
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>If we wanted to print to the terminal the line that mentions the string <code>airplanes</code> then we can type the following command:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ grep &#39;airplanes&#39; example.txt
+This line is about airplanes.
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>We could also print to the terminal which line the string is in:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ grep -n &#39;airplanes&#39; example.txt
+2:This line is about airplanes.
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>You can refer to the <code>man</code> pages to see all of the available flags with this command. </p>
+
+<p>Another useful command is the <code>wc</code> command. This command will output the word, line, character, and byte count of a file. The information printed can be adjusted based on what flags are attatched when typing the commmand. For example if we want to know the line count of a file:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ wc -l example.txt
+    3 example.txt
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>These commands start to become powerful when you have a large amount of files that you want to look through. For example lets you that you have a large amount of files with the *.txt extension and you want to find the number of lines in each of them and print the results to a file. You can type the following</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ wc -l *.txt &gt; length
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<p>Another useful command is the <code>find</code> command. This command will isolate specific files that it <strong>finds</strong> and execute a specifc command to those files. For example if you want to <code>rm</code> all files that fit the <code>find</code> condition then you could type:</p>
+
+<div><pre class="line-numbers"><code class="language-none">[NetID@linux-a1 ~]$ find ~/ -name &#39;*.txt&#39; -exec rm {} \;
+[NetID@linux-a1 ~]$ </code></pre></div>
+
+<h3 id="toc_14">Do <a href="./ex6.html">Exercise #6</a></h3>
+
+<h1 id="toc_15">Congratulations! Now you are a Linux-guru<sup>*</sup>!</h1>
+
+<p><img src="./img/xkcd-cautionary.png" alt=""></p>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==n)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(n.call(e,l,e[l],a||l),"Object"!==t.util.type(e[l])||r[e[l]]?"Array"!==t.util.type(e[l])||r[e[l]]||(r[e[l]]=!0,t.languages.DFS(e[l],n,l,r)):(r[e[l]]=!0,t.languages.DFS(e[l],n,null,r)))}},plugins:{},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),l=0;a=r[l++];)t.highlightElement(a,e===!0,n)},highlightElement:function(n,a,r){for(var l,i,o=n;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=t.languages[l]),n.className=n.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=n.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=n.textContent,u={element:n,language:l,grammar:i,code:s};if(!s||!i)return t.hooks.run("complete",u),void 0;if(t.hooks.run("before-highlight",u),a&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){u.highlightedCode=e.data,t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},g.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=t.highlight(u.code,u.grammar,u.language),t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(n),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},highlight:function(e,a,r){var l=t.tokenize(e,a);return n.stringify(t.util.encode(l),r)},tokenize:function(e,n){var a=t.Token,r=[e],l=n.rest;if(l){for(var i in l)n[i]=l[i];delete n.rest}e:for(var i in n)if(n.hasOwnProperty(i)&&n[i]){var o=n[i];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),P=[p,1];b&&P.push(b);var A=new a(i,g?t.tokenize(m,g):m,h);P.push(A),w&&P.push(w),Array.prototype.splice.apply(r,P)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var l={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}t.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code,l=n.immediateClose;_self.postMessage(t.highlight(r,t.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+<script type="text/javascript">
+!function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.hooks.add("complete",function(e){if(e.code){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var n,a=e.code.match(/\n(?!$)/g),l=a?a.length+1:1,m=new Array(l+1);m=m.join("<span></span>"),n=document.createElement("span"),n.className="line-numbers-rows",n.innerHTML=m,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(n)}}})}();
+</script>
+<script type="text/x-mathjax-config">
+if (typeof MathJaxListener !== 'undefined') {
+  MathJax.Hub.Register.StartupHook('End', function () {
+    MathJaxListener.invokeCallbackForKey_('End');
+  });
+}
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
