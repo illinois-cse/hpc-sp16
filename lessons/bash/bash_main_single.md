@@ -4,21 +4,21 @@
 
 ![](./img/dilbert-1486.strip.gif)
 
-## Contents
-- **Introduction**
+## <a name="contents"></a>Contents
+- **<a href="#intro" style="text-decoration:none; color:black;">Introduction</a>**
 
-- **Files and Directories**
+- **<a href="#filesfolders1" style="text-decoration:none; color:black;">Files and Directories</a>**
 
-- **Manipulating Files and Directories**
+- **<a href="#filesfolders2" style="text-decoration:none; color:black;">Manipulating Files and Directories</a>**
 
-- **Pipes and Filters**
+- **<a href="#pipesfilters" style="text-decoration:none; color:black;">Pipes and Filters</a>**
 
-- **Shell Scripts**
+-  **<a href="#shellscripts" style="text-decoration:none; color:black;">Shell Scripts</a>** 
 
-- **Finding Things**
+- **<a href="#findingthings" style="text-decoration:none; color:black;">Finding Things</a>**
 
 
-## Introduction
+## <a name="intro"></a><a href="#contents" style="text-decoration:none; color:black;">Introduction</a>
 A shell is a program that let's the user interact with the operating system through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (**B**ourne **A**gain **SH**ell). To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line: 
 
 	$ echo $SHELL
@@ -48,7 +48,7 @@ Similarly, if we wanted to know who else was logged into the computer type `who`
 	
 This command will help you later on when you want to figure out how to use a specific command. 
 
-## Files and Directories
+## <a name="filesfolders1"></a><a href="#contents" style="text-decoration:none; color:black;">Files and Directories</a>
 
 When moving around a linux system you will be encountered by files and directories. The linux system considers everything to be a file with directories being files that contain files. The following section will discuss how to file system is set up and how to navigate the file system. 
 
@@ -127,7 +127,7 @@ A few handy shortcuts when moving around the file system:
 
 ###Do [Exercise #1](./ex1.html)
 
-## Manipulating Files and Directories
+## <a name="filesfolders2"></a><a href="#contents" style="text-decoration:none; color:black;">Manipulating Files and Directories</a>
 
 Over time you will start manipulating files and directories. This will include creating, copying, moving, removing and renaming files and directories. It is essential to have an organized file system especially when you start dealing with multiple files from multiple processes. This section will discuss the baisc simple commands necessary to manipulate files and directories. 
 
@@ -241,7 +241,7 @@ As a reminder if there is a command that you don't know exactly how to use or if
 ###Do [Exercise #2](./ex2.html)
 
 
-## Pipes and Filters
+## <a name="pipesfilters"></a><a href="#contents" style="text-decoration:none; color:black;">Pipes and Filters</a>
 
 When we type a command or run a program we will get an output printed to the terminal. Pipes can redirect a command or a program's output to a file for future reference or to be used at a later time. In this section you will learn how to use the pipes and how to combine pipes into powerful single-purpose programs. 
 
@@ -281,7 +281,7 @@ Sometimes in order to combine two command line steps you can use a pipeline. Tha
 
 ###Do [Exercise #3](./ex3.html)
 
-## Shell Scripts
+## <a name="shellscripts"></a><a href="#contents" style="text-decoration:none; color:black;">Shell Scripts</a>
 
 There will come a time when using bash that typing in specific commands in the command line will become cumbersome. This is where shell scripts come in. A user can write a series of commands in a shell script that the computer will then execute sequencially. It is important to know that commands that work on the command line will work the same way when implemented in a script. Likewise if a series of commands are implemented in a script, the same result will occur if the user inputs the commands manually in the command line. The following section will introduce the concept of shell scripts, how to write them, and how to exectue them. 
 
@@ -416,7 +416,7 @@ You can also prompt the user to select from a list of choices using the `select`
 	
 ###Do [Exercise #5](./ex5.html)
 
-## Finding Things
+## <a name="findingthings"></a><a href="#contents" style="text-decoration:none; color:black;">Finding Things</a>
 
 In this last section of the tutorial you are going to learn about finding useful data within your files. 
 
