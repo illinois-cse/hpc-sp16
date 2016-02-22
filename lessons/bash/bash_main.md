@@ -1,3 +1,5 @@
+[![](https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6)](http://cse.illinois.edu/training)
+
 # Introduction to Bash (The Linux Command Line)
 
 ![](./img/dilbert-1486.strip.gif)
@@ -19,25 +21,22 @@
 ## Introduction
 A shell is a program that let's the user interact with the operating system through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (**B**ourne **A**gain **SH**ell). To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line: 
 
-	[NetID@linux-a1 ~]$ echo $SHELL
+	$ echo $SHELL
 	/bin/bash
-	[NetID@linux-a1 ~]$
 	
 `echo` is a command that prints a string to the terminal. In this case the shell printed the environment variable `$SHELL`. We can also tell the shell to print anything we like such as
 
-	[NetID@linux-a1 ~]$ echo Hello World!
+	$ echo Hello World!
 	Hello World!
-	[NetID@linux-a1 ~]$
 	
-To print to the screen who the current user is type `whoami` and your NetID should be printed to the terminal. If you are using your personal computer then the username will be printed to the terminal. 
+To print to the screen who the current user is type `whoami` and your LoginID should be printed to the terminal. If you are using your personal computer then the username will be printed to the terminal. 
 	
-	[NetID@linux-a1 ~]$ whoami
-	NetID
-	[NetID@linux-a1 ~]$ 
+	$ whoami
+	<LoginID>
 	
 Similarly, if we wanted to know who else was logged into the computer type `who` and a list of the users should print to the terminal. While this workshop will not cover every command the `man` will become your best friend. The `man` command prints to the screen the manual page for all other commands recognized by the shell. For example:
 
-	[NetID@linux-a1 ~]$ man mv
+	$ man mv
 	
 	NAME 
 		mv - move (rename) files
@@ -55,11 +54,10 @@ When moving around a linux system you will be encountered by files and directori
 
 The first thing we probably want to know is where are we within the file system. The command `pwd` will **p**rint the **w**orking **d**irectory. For example: 
 
-	[NetID@linux-a1 ~]$ pwd
-	/home/NetID
-	[NetID@linux-a1 ~]$ 
+	$ pwd
+	/home/<LoginID>
 	
-It is important to note that the directory that is printed to the terminal starts with `/`. This refers to the root directory, or the outermost directory while everything after a `/` is a subdirectory. In this case the `NetID` is a subdirectory of `home` and so on. 
+It is important to note that the directory that is printed to the terminal starts with `/`. This refers to the root directory, or the outermost directory while everything after a `/` is a subdirectory. In this case the `LoginID` is a subdirectory of `home` and so on. 
 
 When refering to the location of a file or directory there are two ways in which you can refernce the path to the file. The *absolute* path refers to a file or directory from the root directory. The *relative* path refers to a file or directory from the current directory. 
 
@@ -93,34 +91,29 @@ To navigate this system on the command line (as opposed to in a file browser), y
 
 You already learned that `pwd` prints the working directory. To list the contents within a directory use the `ls` command. For example:
 
-	[NetID@linux-a1 music]$ ls 
+	$ ls 
 	theme.mp3 boss.mp3
-	[NetID@linux-a1 music]$ 
 
 Often a command will take options or flags which begin with `-`. Type `ls -l` to print a long list of the contentes within a directory. 
 		
-	[NetID@linux-a1 music]$ ls -l
+	$ ls -l
 	total 2
-	drwx------. 2 NetID ews 80 Aug 15 2015 boss.mp3
-	drwx------. 2 NetID ews 80 Oct  6 2015 theme.mp3
-	[NetID@linux-a1 music]$
+	drwx------. 2 LoginID ews 80 Aug 15 2015 boss.mp3
+	drwx------. 2 LoginID ews 80 Oct  6 2015 theme.mp3
 	
 Other flags such as `-a`,`-t`, or `-r	` display the same contents with some modifications (Refer to the `man` pages for a full list of all the flags). The `-a` flag will display all files including the hidden files. 
 
-	[NetID@linux-a1 music]$ ls -a
+	$ ls -a
 	.		boss.mp3		theme.mp3
 	.. 		.DS_Store
-	[NetID@linux-a1 music]$
 	
 To physically move from one directory to another you can use the `cd` command, as in **c**hange **d**irectory. This can be used in the following way:
 
-	[NetID@linux-a1 home]$ cd sonic
-	[NetID@linux-a1 sonic]$
+	$ cd sonic
 	
 Notice that the current directory has changed. We can direct `cd` to a directory through an absolute path. For example: 
 
-	[NetID@linux-a1 sonic]$ cd /home/sonic/music
-	[NetID@linux-a1 music]$
+	$ cd /home/sonic/music
 	
 A few handy shortcuts when moving around the file system: 
 
@@ -140,85 +133,76 @@ Over time you will start manipulating files and directories. This will include c
 
 The first basic command is `mkdir`. This command **m**a**k**es a **dir**ectory in the file system. Like many other commands there are multiple flags that can be used with this command, however the basic useage is `mkdir directory_name`. For example:
 
-	[NetID@linux-a1 ~]$ ls
+	$ ls
 	bin data usr
-	[NetID@linux-a1 ~]$ mkdir home
-	[NetID@linux-a1 ~$ ls
+	$ mkdir home
+	$ ls
 	bin data home usr
-	[NetID@linux-a1 ~]$
 	
 To **c**o**p**y a file or directory you can use the `cp` command. This second basic command allows the user to copy a file or directory and specify a desination. This command has the format `cp source destination`. For Example:
 		
-	[NetID@linux-a1 ~]$ ls 
+	$ ls 
 	bin data home usr
-	[NetID@linux-a1 ~]$ cp home thesis
+	$ cp home thesis
 	bin data home thesis usr
-	[NetID@linux-a1 ~]$
 	
 The next basic command is `mv` which easily enough stands for **m**o**v**e. Similar to `cp` in this command you specify a source and a destination however unlike `cp` it will only keep the desitnation. For this reason `mv` is used to rename files. To move a file you can type the following in the command line:
 
-	[NetID@linux-a1 ~]$ ls 
+	$ ls 
 	bin data home thesis usr
-	[NetID@linux-a1 ~]$ mv thesis home/
-	[NetID@linux-a1 ~]$ ls 
+	$ mv thesis home/
+	$ ls 
 	bin data home usr
-	[NetID@linux-a1 ~]$ cd home	
-	[NetID@linux-a1 home]$ ls
+	$ cd home	
+	$ ls
 	thesis
-	[NetID@linux-a1 home]$
 	
 Notice that the directory `thesis` is no longer in the root directory but instead in the home directory. To rename a file you can specify the `source` as long as the source is not within the current directory. For example:
 
-	[NetID@linux-a1 home]$ ls
+	$ ls
 	thesis
-	[NetID@linux-a1 home]$ mv thesis paper
-	[NetID@linux-a1 home]$ ls
+	$ mv thesis paper
+	$ ls
 	paper
-	[NetID@linux-a1 home]$
 	
 Finally there a few different ways to remove a file or directory. For example:
 	
-	[NetID@linux-a1 sonic]$ ls
+	$ ls
 	cse.txt mend.cfg music papers school thesis
-	[NetID@linux-a1 sonic]$ rm mend.cfg
-	[NetID@linux-a1 sonic]$ ls
+	$ rm mend.cfg
+	$ ls
 	cse.txt music papers school thesis 
-	[NetID@linux-a1 sonic]$ rm thesis
+	$ rm thesis
 	rm: thesis: is a directory
-	[NetID@linux-a1 sonic]$
 	
 You simplify cannot remove a directory using the `rm` command. It turns out that to remove a directory there are is a special `rmdir` command. 
 
-	[NetID@linux-a1 sonic]$ rmdir thesis
-	[NetID@linux-a1 sonic]$ ls
+	$ rmdir thesis
+	$ ls
 	cse.txt music papers school
-	[NetID@linux-a1 sonic]$
 	
 Another option is to use the flag `-d` which attempts to remove directories as well as other file types. For example:
 
-	[NetID@linux-a1 sonic]$ rm -d school
-	[NetID@linux-a1 sonic]$ ls
+	$ rm -d school
+	$ ls
 	cse.txt music papers
-	[NetID@linux-a1 sonic]$
 	
 We now know how copy, move, rename, and remove a file. But what about creating a new file? There are a few different ways you can create a new file. To create a blank file you can use the `touch` command. For example:
 
-	[NetID@linux-a1 sonic]$ touch ae410.txt
-	[NetID@linux-a1 sonic]$ ls
+	$ touch ae410.txt
+	$ ls
 	ae410.txt cse.txt music papers
-	[NetID@linux-a1 sonic]$
 	
 In some cases the `touch` command is used to update the timestamp on a file if the file already exists. 
 
 To open a new file you can use a different editors. For exmaple if I wanted to open a new file and begin editting it I could use the text editors `vi` `vim` `nano` among others. In this case lets use `vi` to open a new file called `cse450.txt`:
 
-	[NetID@linux-a1 sonic]$ vi cse450.txt
+	$ vi cse450.txt
 	
 The `cat` command allows you to view but not edit a file. For example if we want to view the file `cse450.txt` we can:
 
-	[NetID@linux-a1 sonic]$ cat cse450.txt
+	$ cat cse450.txt
 	This is what is inside the cse450.txt file.
-	[NetID@linux-a1 sonic]$
 	
 Lets say that there are a lot of files that you want to copy, move, rename, or remove. We can use what are called *Wildcards*. 
 
@@ -228,33 +212,29 @@ Lets say that there are a lot of files that you want to copy, move, rename, or r
 
 These commands allow the user to ask for a specifc pattern or set of files and directories. For example lets say we have the following in our directory, 
 
-	[NetID@linux-a1 sonic]$ ls
+	$ ls
 	ae410.txt cse.txt dir5 dir37 dir40 
 	file1.txt file2.txt music papers
-	[NetID@linux-a1 sonic]$
 	
 And we want to know what files we have that start with the letter `f` we can use the `*` command. 
 
-	[NetID@linux-a1 sonic]$ ls f*
+	$ ls f*
 	file1.txt file2.txt
-	[NetID@linux-a1 sonic]$
 	
 If we cant to find all files that have exactly 3 characters as an extension we can use the `?` command:
 
-	[NetID@linux-a1 sonic]$ ls *.???
+	$ ls *.???
 	ae410.txt cse.txt file1.txt file2.txt
-	[NetID@linux-a1 sonic]$
 	
 The last wildcard listed above is the `[]` command which can be used to specify a list of characters that you want to find. For example if you want to remove all files that start with the letter **a** and **c** you can type in the command line
 
-	[NetID@linux-a1 sonic]$ ls
+	$ ls
 	ae410.txt cse.txt dir5 dir37 dir40 
 	file1.txt file2.txt music papers
-	[NetID@linux-a1 sonic]$ rm [ac]*
-	[NetID@linux-a1 sonic]$ ls
+	*
+	$ ls
 	dir5 dir37 dir40 file1.txt 
 	file2.txt music papers
-	[NetID@linux-a1 sonic]$ 
 	
 As a reminder if there is a command that you don't know exactly how to use or if you want to find out what the flags are reference the `man` pages. 
 
@@ -267,41 +247,37 @@ When we type a command or run a program we will get an output printed to the ter
 
 The first command to learn is `>`. This pipe, used as `command > file` redirects a command's output to a file. For example:
 
-	[NetID@linux-a1 music]$ ls  
+	$ ls  
 	theme.mp3 boss.mp3
-	[NetID@linux-a1 music]$ ls > output.txt
-	[NetID@linux-a1 music]$ cat output.txt
+	$ ls > output.txt
+	$ cat output.txt
 	theme.mp3
 	boss.mp3
-	[NetID@linux-a1 music]$ 
 	
 Sometimes you run into the problem of redirection mutliple outputs to a single file. If you use the `>` command the original file contents will be overwritten. To append new outputs to a file you can use the command `>>`. For example:
 
-	[NetID@linux-a1 music]$ cat output.txt
+	$ cat output.txt
 	theme.mp3
 	boss.mp3
-	[NetID@linux-a1 music]$ echo Hello! >> output.txt
-	[NetID@linux-a1 music]$ cat output.txt
+	$ echo Hello! >> output.txt
+	$ cat output.txt
 	theme.mp3
 	boss.mp3
 	Hello!
-	[NetID@linux-a1 music]$ 
 		
 If you would like to read the contents of a file to use in your command you can use the `<` command. In this case instead of redirecting an output to a file you are redirecting a file's contents into the input of command. For example:
 
-	[NetID@linux-a1 music]$ rm *.mp3 < output.txt 
-	[NetID@linux-a1 music]$ cat output.txt
+	$ rm *.mp3 < output.txt 
+	$ cat output.txt
 	Hello!
-	[NetID@linux-a1 music]$ 
 
 Sometimes in order to combine two command line steps you can use a pipeline. That is you can use the output of one file into the input of another file using the `|` command. For example:
 
-	[NetID@linux-a1 sonic]$ ls
+	$ ls
 	dir5 dir37 dir40 file1.txt 
 	file2.txt music papers
-	[NetID@linux-a1 sonic]$ ls | head -3
+	$ ls | head -3
 	dir5 dir37 dir40
-	[NetID@linux-a1 sonic]$ 
 
 ###Do [Exercise #3](./ex3.html)
 
@@ -317,11 +293,11 @@ Consider the following simple script:
 
 Lets break down the script and how its works. In the first line you'll see `#!/bin/bash` is written. Every shell script should start with this exact line, this tells Linux which interpreter to use for this file. The second command is the `echo` command which prints everything that follows it. And finally we have the `ls` command which just lists the directory. If a user were to execute this series of command manually it would look like this:
 
-	[NetID@linux-a1 ~]$ echo This script lists the files in the directory
+	$ echo This script lists the files in the directory
 	This script lists the files in the directory
-	[NetID@linux-a1 ~]$ ls
+	$ ls
 	bin data home usr
-	[NetID@linux-a1 ~]
+	
 	
 Remember that Linux is an extensionless system therefore when writing a shell script you don't have to append the `.sh` extension, however doing this will help you identify which files are shell scripts and which are not. 
 
@@ -336,16 +312,14 @@ You can also declare variables within a shell script. This can be done in the fo
 	
 Notice that when we are defining the variable there are no spaces on either side of the `=` sign. Addtionally when you want to refer to the varible you have to place `$` sign right infront of the variable to signify that you are refereing to a variable. The previous script will output:
 
-	[NetID@linux-a1 ~]$ ./script.sh
+	$ ./script.sh
 	Hello World!
-	[NetID@linux-a1 ~]$
 	
 To run the shell script we typed `./` and then the filename. Remember a few sections back that `.` specifies the current directory. When executing a shell script you are essentially telling the computer that the script you are attempting to execute is in the current directory. An absolute path would also work. If the script in is the directory above your current directory you could use `../` to run the script. 
 
 It may be the case that when you write a shell script your system does not yet know it's an executable script. To change this adjust the permissions on the file by typing:
 	
-	[NetID@linux-a1 ~]$ chmod +x script.sh
-	[NetID@linux-a1 ~]$ 
+	$ chmod +x script.sh
 
 There are a few automaticly set variables when running a script. These are: 
 
@@ -410,12 +384,12 @@ More advanced loop could include the `break` and `continue` commands. The `break
 	#!/bin/bash
 	for value in {1..10}
 	do 
-		if [$value -eq 5]
+		if [ $value -eq 5 ]
 		then
 			echo The current count is $value
 			continue
 		fi
-		if [$value -eq 7]
+		if [ $value -eq 7 ]
 		then
 			echo The count is $value
 			echo Now exiting loop
@@ -448,41 +422,35 @@ In this last section of the tutorial you are going to learn about finding useful
 
 The first commmand and most powerful is the `grep` command. Lets say you want to find the line within a file that contains a specific string. We can then use the `grep` command to print that whole line to the terminal. For example lets consider the following file and its contents:
 
-	[NetID@linux-a1 ~]$ cat example.txt
+	$ cat example.txt
 	This line is about cars.
 	This line is about airplanes.
 	This line only has one sentence.
-	[NetID@linux-a1 ~]$ 
 	
 If we wanted to print to the terminal the line that mentions the string `airplanes` then we can type the following command:
 
-	[NetID@linux-a1 ~]$ grep 'airplanes' example.txt
+	$ grep 'airplanes' example.txt
 	This line is about airplanes.
-	[NetID@linux-a1 ~]$ 
 
 We could also print to the terminal which line the string is in:
 
-	[NetID@linux-a1 ~]$ grep -n 'airplanes' example.txt
+	$ grep -n 'airplanes' example.txt
 	2:This line is about airplanes.
-	[NetID@linux-a1 ~]$ 
 	
 You can refer to the `man` pages to see all of the available flags with this command. 
 
 Another useful command is the `wc` command. This command will output the word, line, character, and byte count of a file. The information printed can be adjusted based on what flags are attatched when typing the commmand. For example if we want to know the line count of a file:
 
-	[NetID@linux-a1 ~]$ wc -l example.txt
+	$ wc -l example.txt
 		3 example.txt
-	[NetID@linux-a1 ~]$ 
 
 These commands start to become powerful when you have a large amount of files that you want to look through. For example lets you that you have a large amount of files with the *.txt extension and you want to find the number of lines in each of them and print the results to a file. You can type the following
 
-	[NetID@linux-a1 ~]$ wc -l *.txt > length
-	[NetID@linux-a1 ~]$ 
+	$ wc -l *.txt > length
 	
 Another useful command is the `find` command. This command will isolate specific files that it **finds** and execute a specifc command to those files. For example if you want to `rm` all files that fit the `find` condition then you could type:
 
-	[NetID@linux-a1 ~]$ find ~/ -name '*.txt' -exec rm {} \;
-	[NetID@linux-a1 ~]$ 
+	$ find ~/ -name '*.txt' -exec rm {} \;
 
 ###Do [Exercise #6](./ex6.html)
 
