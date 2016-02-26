@@ -6,7 +6,7 @@
 <style type="text/css">
 body {
   font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -542,7 +542,7 @@ div.prism-show-language > div.prism-show-language-label {
 <h4 id="toc_4">Strategies</h4>
 
 <div style="margin:0; width:100%;text-align:right; font-size:18px;">
-<a href="http://www.cray.com/company/history/seymour-cray"><img src="./img/SeymourCray_retouched.jpg" alt="Seymour Cray"></a>
+<a href="http://www.cray.com/company/history/seymour-cray"><img src="./img/SeymourCray_retouched.jpg" alt="Seymour Cray"></a><br>
 If you were plowing a field, which would you rather use: Two strong oxen or 1024 chickens?
 <p style="text-align:right; margin-top:0;"><b>&mdash; Seymour Cray</b></p>
 </div>
@@ -626,7 +626,7 @@ All of them require the so-called <strong>submission scripts</strong>, that are 
 
 <h2 id="toc_15">Compiling Scientific Code</h2>
 
-<div><pre class="line-numbers"><code class="language-none">wget https://github.com/maxim-belkin/hpc-sp16/gh-pages/lessons/hpc-code-examples.tar.gz
+<div><pre class="line-numbers"><code class="language-none">wget https://github.com/maxim-belkin/hpc-sp16/raw/gh-pages/lessons/scicomp/hpc-code-examples.tar.gz
 tar -xvzf hpc-code-examples.tar.gz
 module load gcc</code></pre></div>
 
@@ -891,8 +891,12 @@ Premature optimization is the root of all evil.
 <p><a href="http://xkcd.com/"><img src="http://imgs.xkcd.com/comics/future_self.png" alt=""></a></p>
 
 <ul>
-<li>  Numerical error worksheet (<a href="./numerical-error.ipynb"><code>numerical-error.ipynb</code></a>)</li>
+<li>  Numerical error worksheet (<a href="./numerical-error.ipynb"><code>numerical-error.ipynb</code></a>)
+To enable jupyter notebook:<br></li>
 </ul>
+
+<div><pre class="line-numbers"><code class="language-none">source /class/cs101/etc/venv/cse/bin/activate /class/cs101/etc/venv/cse/
+jupyter notebook</code></pre></div>
 
 <p><a href="http://cse.illinois.edu/"><img src="https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6" alt=""></a></p>
 

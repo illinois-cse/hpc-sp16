@@ -23,7 +23,7 @@ This workshop is intended to give you a whirlwind tour of the issues underlying 
 #### Strategies
 
 <div style="margin:0; width:100%;text-align:right; font-size:18px;">
-<a href="http://www.cray.com/company/history/seymour-cray"><img src="./img/SeymourCray_retouched.jpg" alt="Seymour Cray"></a>
+<a href="http://www.cray.com/company/history/seymour-cray"><img src="./img/SeymourCray_retouched.jpg" alt="Seymour Cray"></a><br>
 If you were plowing a field, which would you rather use: Two strong oxen or 1024 chickens?
 <p style="text-align:right; margin-top:0;"><b>--- Seymour Cray</b></p>
 </div>
@@ -101,9 +101,11 @@ This is a common sense when working on a supercomputer. You don't want to lose a
 
 ## Compiling Scientific Code
 
-    wget https://github.com/maxim-belkin/hpc-sp16/gh-pages/lessons/hpc-code-examples.tar.gz
-    tar -xvzf hpc-code-examples.tar.gz
-    module load gcc
+```
+wget https://github.com/maxim-belkin/hpc-sp16/raw/gh-pages/lessons/scicomp/hpc-code-examples.tar.gz
+tar -xvzf hpc-code-examples.tar.gz
+module load gcc
+```
 
 #### Compiling & building (`gcc`, `make`)
 -  `$LD_LIBRARY_PATH`
@@ -334,5 +336,11 @@ Premature optimization is the root of all evil.
 [![](http://imgs.xkcd.com/comics/future_self.png)](http://xkcd.com/)
 
 -   Numerical error worksheet ([`numerical-error.ipynb`](./numerical-error.ipynb))
+To enable jupyter notebook:<br>
+
+```
+source /class/cs101/etc/venv/cse/bin/activate /class/cs101/etc/venv/cse/
+jupyter notebook
+```
 
 [![](https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6)](http://cse.illinois.edu/)
