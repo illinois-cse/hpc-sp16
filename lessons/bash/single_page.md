@@ -19,7 +19,7 @@
 
 
 ## <a name="intro"></a><a href="#contents" style="text-decoration:none; color:black;">Introduction</a>
-A shell is a program that let's the user interact with the operating system through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (**B**ourne **A**gain **SH**ell). To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line: 
+Unix shell is a program that let's us interact with the computer through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (**B**ourne **A**gain **SH**ell). To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line: 
 
 	$ echo $SHELL
 	/bin/bash

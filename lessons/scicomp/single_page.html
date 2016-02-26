@@ -1,0 +1,918 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>single_page</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+</head>
+<body>
+<p><a href="http://cse.illinois.edu/"><img src="https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6" alt=""></a></p>
+
+<h1 id="toc_0">Scientific Computing on a Cluster</h1>
+
+<h4 id="toc_1"><a href="cse.illinois.edu/training">CSE Training</a> • Spring 2016</h4>
+
+<p>This workshop is intended to give you a whirlwind tour of the issues underlying scientific computing, particularly as that is executed today on distributed clusters.  What you should walk out of here with today is at least a list of topics to dig deeper into, because semester-long courses could be written with the outline we use to introduce scientific computing.</p>
+
+<h2 id="toc_2">What is Scientific Computing?</h2>
+
+<ul>
+<li>  Building computational models of real-life (physical, chemical, biological,&hellip;) phenomena</li>
+<li>  Often requires massive linear-algebraic solution methods—thus <strong>HPC</strong></li>
+<li>  This workshop is designed to answer the question:<br>
+ <q>I&rsquo;ve got an account on a supercomputer (cluster) — what do I do?</q></li>
+</ul>
+
+<h2 id="toc_3">What is High-Performance Computing (HPC)?</h2>
+
+<!--
+[Slides](http://slides.com/uiuc-cse/hpc-fa14-2#/)
+-->
+
+<h4 id="toc_4">Strategies</h4>
+
+<div style="margin:0; width:100%;text-align:right; font-size:18px;">
+<a href="http://www.cray.com/company/history/seymour-cray"><img src="./img/SeymourCray_retouched.jpg" alt="Seymour Cray"></a>
+If you were plowing a field, which would you rather use: Two strong oxen or 1024 chickens?
+<p style="text-align:right; margin-top:0;"><b>&mdash; Seymour Cray</b></p>
+</div>
+
+<h4 id="toc_5">Concepts</h4>
+
+<ul>
+<li>  <strong>vectorization</strong>: single operation across multiple data</li>
+<li>  <strong>distributed computing</strong>: multiple units on multiple data for same overall process</li>
+<li>  <strong>threading</strong>: context-switching processes operating over multiple control flows or multiple data</li>
+<li>  (<a href="http://link.springer.com/article/10.1007%2Fs11227-012-0789-3">Davis et al. 2012</a>)</li>
+</ul>
+
+<h4 id="toc_6">Hardware mapping</h4>
+
+<ul>
+<li>  <strong>multicore</strong></li>
+<li>  <strong>GPGPU</strong></li>
+<li>  <strong>cluster</strong> (nodes and head node)</li>
+</ul>
+
+<p><br></p>
+
+<h4 id="toc_7">Scalability</h4>
+
+<p>Let&rsquo;s imagine we are solving a problem of size <strong>N</strong> (that is, we have to make <strong>N</strong> operations) and there is <strong>P</strong> processing elements (CPUs, cores, processes, threads, <em>etc.</em>) at our disposal. To execute code on a massively parallel machine, we have to be sure that our code effectively uses computer resourses (time- and energy-wise). We can measure how much faster the computer code that performs these operations is by calculating its speedup when we use more processing element:</p>
+
+<ul>
+<li><p><strong>Speedup</strong>
+\[ S\left(\rm N, P\right) = \dfrac{time\,({\rm N, 1})}{time\,(\rm N, P)} \]</p></li>
+<li><p><strong>Strong scaling</strong><br>
+For tasks that require a lot of computational time (<em>i.e.</em> CPU-bound tasks), a better measure is the so-called <strong>strong scaling</strong>. It tells us how the solution time varies with the <em>number of processors</em> <strong>P</strong> for a fixed <strong>total problem size</strong> <strong><em>N</em></strong>.
+\[W\left(\rm N, P\right) = \dfrac{time\,(\rm N, 1)}{{\rm P} \cdot time\,(\rm N, P)}=\dfrac{S(\rm N, P)}{\rm P}\]
+Usually, the goal is to find the optimum number of processing units that gives reasonable performance at an affordable computational cost.</p></li>
+<li><p><strong>Weak scaling</strong><br>
+For tasks that require a lot of computational resources other than time (<em>e.g.</em> memory, in which case the task is called memory-bound), a better measure is the so-called <strong>weak scaling</strong>. It tells us how the solution time varies with the <em>number of processors</em> <strong>P</strong> for a fixed problem size <strong>per processor</strong> <strong><em>n = N / P</em></strong>.
+\[E({\rm N, P}) = \dfrac{time\,(\rm N, 1)}{time\,(\rm N\cdot P,P)}\]</p></li>
+</ul>
+
+<h4 id="toc_8">Implementations (software libraries)</h4>
+
+<ul>
+<li>  <strong>Architecture</strong>:  MPI, OpenMP, CUDA/OpenCL</li>
+<li>  <strong>Numerics</strong>:  BLAS, LAPACK, GNU SL, Intel MKL, Trilinos
+<br>
+<br></li>
+</ul>
+
+<h2 id="toc_9">Executing Scientific Code</h2>
+
+<h4 id="toc_10">1. Shells &amp; architecture</h4>
+
+<p>99.999% of a time, you will be accesssing a supercomputer (<em>i.e.</em>, a <strong>cluster</strong> of computers) remotely.<br>
+99.999% of a time, you will be using <code>ssh</code> program to do that.</p>
+
+<p><br>
+<div style="width:80%!important; margin:0 auto;">
+<img src="./img/cluster.svg">
+</div></p>
+
+<h4 id="toc_11">2. Environment</h4>
+
+<p>Be aware of the <strong>environment</strong>:  <code>$PATH</code>, <code>$LD_LIBRARY_PATH</code>, <code>module</code></p>
+
+<h4 id="toc_12">3. Queueing / Scheduling</h4>
+
+<p>Most popular queueing systems are: PBS and slurm.<br>
+<strong>PBS</strong>: Portable Batch System<br>
+<strong>SLURM</strong>:  Simple Linux Utility for Resource Management<br>
+All of them require the so-called <strong>submission scripts</strong>, that are <strong>shell scripts</strong> (bash, sh, ksh, zsh, csh) with a set of special commands to the queueing system.</p>
+
+<h4 id="toc_13">4. Job Scripts (<code>mpiexec</code>, etc.)</h4>
+
+<p>Remember, you <strong>can not</strong> do a simple <code>./myprogram.exe</code>.<br> You always have to do something like <code>mpiexec -n 16 ./a.out</code>. </p>
+
+<h4 id="toc_14">5. Checkpoint often if your code supports it.</h4>
+
+<p>This is a common sense when working on a supercomputer. You don&rsquo;t want to lose a lot of time when emergency happens. </p>
+
+<p><br><br></p>
+
+<h2 id="toc_15">Compiling Scientific Code</h2>
+
+<div><pre class="line-numbers"><code class="language-none">wget https://github.com/maxim-belkin/hpc-sp16/gh-pages/lessons/hpc-code-examples.tar.gz
+tar -xvzf hpc-code-examples.tar.gz
+module load gcc</code></pre></div>
+
+<h4 id="toc_16">Compiling &amp; building (<code>gcc</code>, <code>make</code>)</h4>
+
+<ul>
+<li> <code>$LD_LIBRARY_PATH</code></li>
+<li>  Examples:  OpenMP, MPI, GNU SL, Intel MKL
+
+<ul>
+<li>MPI:  why would you want to request fewer cores per node?</li>
+</ul></li>
+</ul>
+
+<h5 id="toc_17">Common workflow:</h5>
+
+<ul>
+<li>  <code>./configure &amp;&amp; make &amp;&amp; make install</code>
+
+<ul>
+<li>  <code>mpicc</code> compiler wrapper including MPI headers and linked libraries</li>
+<li>  <code>-show</code>, <code>-std=c99</code>, <code>-o</code></li>
+<li>  OpenMP:  <code>$OMP_NUM_THREADS</code> environment variable</li>
+<li>  local installations (<code>ln</code> and <code>~/bin</code>)</li>
+<li>  troubleshooting with libraries:  try <code>ldd mpiexec</code></li>
+</ul></li>
+</ul>
+
+<p><br><br></p>
+
+<h2 id="toc_18">Developing Scientific Code</h2>
+
+<p><br></p>
+
+<div style="margin:0; width:100%;text-align:right; font-size:18px;">
+Why do we never have time to do it right, but always have time to DO IT OVER?
+<p style="text-align:right; margin-top:0;"><b>&mdash; Anonymous</b></p>
+</div>
+
+<ul>
+<li><p>Design (and only) then code.</p></li>
+<li><p>Daisie Huang <a href="http://www.software.ac.uk/blog/2015-02-06-scientific-coding-and-software-engineering-whats-difference">Scientific coding and software engineering: what&rsquo;s the difference?</a></p></li>
+<li><p>Carry out studies of the strong and weak scaling, as well as profiling so that you aren&rsquo;t wasting cluster cycles.</p></li>
+</ul>
+
+<h3 id="toc_19">Design</h3>
+
+<p><em>Design</em> refers to the decisions you need to make about what the software will do and how it will work.  This includes deciding the language and libraries that you require, and the target platform.</p>
+
+<ul>
+<li><p>Modularize your code as much as practical.</p></li>
+<li><p>Don&rsquo;t reinvent the wheel—find existing libraries:  Boost, SciPy, Netlib, Scalapack, PETSc, etc.</p></li>
+<li><p>Language support and libraries for HPC</p>
+
+<ul>
+<li>  Fortran; C/C++; Python; R; MATLAB (why to choose each)</li>
+<li>  MKL (BLAS/LAPACK/ScaLAPACK,BLACS), OpenBLAS; CUDA; MVAPICH2, OpenMPI;
+GSL; Boost; PETSc</li>
+<li>  MPI:  MVAPICH2 v. OpenMPI:  broadly speaking, MVAPICH2 exhibits better
+scaling than OpenMPI for many problems at higher numbers of nodes
+and bandwidth <a href="http://hpc.inspur.com/images/News/2012/11/23/11EB9AD954D64F86AF46AADB2ECF289E.pdf">source</a></li>
+<li>  Compiler versions and features (Intel, GCC (esp. 4.9+))</li>
+<li>  <a href="http://julialang.org/benchmarks/">Language microbenchmarks across languages</a></li>
+</ul></li>
+</ul>
+
+<h3 id="toc_20">Construction</h3>
+
+<p><em>Construction</em> refers to the process of actually coding the software.</p>
+
+<p>You are not a serious software developer.  That is not to say that you are not serious, nor that you do not develop software; however, you think of yourself as an engineer first and as a coder only incidentally.</p>
+
+<p>There are extremely sophisticated tool chains in use in software development today, but we are going to highlight only a few immediately useful selections.</p>
+
+<h4 id="toc_21">External to coding</h4>
+
+<ul>
+<li><p>Take the time to learn your development environment of choice well—there are language-aware code editors including code completion:  IDEs (Eclipse, XCode), <code>vi</code> (YouCompleteMe), <code>emacs</code>.</p></li>
+<li><p>Write self-documenting code:  good variable and function names that follow a convention.  If you don&rsquo;t have a convention yet, look at a lot of code on GitHub and see what you like, but be consistent.</p>
+
+<ul>
+<li>  What does <q>using a convention</q> mean?</li>
+<li>  <a href="https://www.gnu.org/prep/standards/html_node/index.html">GNU coding standards</a></li>
+</ul></li>
+<li><p>Use a compilation system:</p>
+
+<ul>
+<li><a href="https://www.gnu.org/software/make/">Make</a></li>
+<li><a href="http://www.cmake.org/">CMake</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_build_system">GNU Autotools</a> (<code>./configure &amp;&amp; make &amp;&amp; make install</code>), etc.
+<a href="https://www.lrde.epita.fr/%7Eadl/autotools.html">Autotools tutorial</a></li>
+<li><p>This also lets you query the hardware to optimize at compile time.</p>
+
+<div><pre class="line-numbers"><code class="language-none">&gt;configure.ac
+    AC_INIT(cache_test.c)
+    AM_INIT_AUTOMAKE(cache_test, 1.0)
+    : ${CFLAGS=&quot;-O2 -std=c99&quot;}
+    AC_PROG_CC
+    AC_OUTPUT(Makefile)
+aclocal
+autoconf
+&gt;Makefile.am
+    bin_PROGRAMS = cache_test
+    cache_test_SOURCES = cache_test.c
+automake --add-missing
+touch NEWS README AUTHORS ChangeLog
+
+./configure
+make</code></pre></div>
+
+<ul>
+<li>  <a href="http://ptgmedia.pearsoncmg.com/images/1578701902/samplechapter/1578701902.pdf">Overview of Autotools toolchain</a></li>
+</ul></li>
+</ul></li>
+<li><p>Use version control:  <strong>Git</strong>, SVN, Mercurial, etc.</p>
+
+<ul>
+<li>  <code>git clone https://github.com/losalamos/CLAMR</code></li>
+</ul></li>
+<li><p>Use an issue-tracking system:  <strong>GitHub</strong>, Bugzilla, etc.</p></li>
+<li><p>Don&rsquo;t create new file formats:  find something existing that works (<code>HDF5</code>, <code>PDB</code>, <code>XYZ</code>, etc.).</p></li>
+</ul>
+
+<h4 id="toc_22">Internal to coding</h4>
+
+<ul>
+<li><p>Use configuration files and command-line flags rather than hard-coding values.</p></li>
+<li><p>Compile with all debug flags set (<code>-Wall -Werror -g</code>), and aim to compile with zero warnings.</p></li>
+<li><p>Avoid loops (they <q>cost</q> computer time).  Unroll them if you must use them.</p></li>
+<li><p>Optimize aggressively (<code>gcc -O3</code>) only after you&rsquo;ve finished debugging the code.</p></li>
+</ul>
+
+<p>Other potentially useful utilities include documentation generators and integrated development environments.</p>
+
+<h3 id="toc_23">Access</h3>
+
+<ul>
+<li><p>Always include certain standard files when distributing your software:  <code>README</code>, <code>INSTALL</code>, <code>CITATION</code>, <code>LICENSE</code>.</p></li>
+<li><p>Have a long-term data management plan (now a requirement for NSF, other grants).</p>
+
+<ul>
+<li><a href="http://www.ljmu.ac.uk/lea/77337.htm">http://www.ljmu.ac.uk/lea/77337.htm</a></li>
+<li>dryad, re3, research data service</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_24">Testing</h3>
+
+<div style="margin:0; width:100%;text-align:right; font-size:18px;">
+Before software can be reusable it first has to be usable.
+<p style="text-align:right; margin-top:0;"><b>&mdash; Ralph Johnson </b></p>
+</div>
+
+<ul>
+<li><p>Learn to use (and then actually use!) debugging and profiling tools.</p>
+
+<ul>
+<li><p>Debuggers let you step through your code line-by-line and view the contents of variables and the results of evaluations <u>interactively</u>.  (This is invaluable for C/C++/Fortran programming.)</p>
+
+<ul>
+<li><a href="https://www.gnu.org/software/gdb/"><code>gdb</code></a></li>
+<li><code>lldb</code> (if you are developing code on a Mac)</li>
+</ul></li>
+<li><p>Profilers query the code frequently to build up a picture of how often your execution point is in any one part of the program.  This lets you characterize performance and identify bottlenecks.</p>
+
+<ul>
+<li><code>gprof</code></li>
+<li><a href="https://www.cs.uoregon.edu/research/tau/home.php">TAU</a></li>
+<li><a href="">Valgrind</a> is an extremely versatile tool which lets you characterize memory performance, find memory leaks, and profile your code.  <code>memcheck</code> and <code>cachegrind</code> are two of the most commonly used utilities.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<div><pre class="line-numbers"><code class="language-none">$ module load valgrind
+$ valgrind --tool=memcheck --leak-check=yes --show-reachable=yes -v ./cache_test 10000
+==12877== Memcheck, a memory error detector
+==12877== Copyright (C) 2002-2013, and GNU GPL&#39;d, by Julian Seward et al.
+==12877== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright info
+==12877== Command: ./cache_test 10000
+...
+--12877-- Valgrind library directory: /usr/local/apps/valgrind/3.9.0/lib/valgrind
+...
+Matrix size:  10000x10000
+--12877-- REDIR: 0x4eaa520 (free) redirected to 0x4c273fd (free)
+--12877-- REDIR: 0x4ea9640 (malloc) redirected to 0x4c27a23 (malloc)
+==12877== 
+==12877== HEAP SUMMARY:
+==12877==     in use at exit: 0 bytes in 0 blocks
+==12877==   total heap usage: 10,001 allocs, 10,001 frees, 400,080,000 bytes allocated
+==12877== 
+==12877== All heap blocks were freed -- no leaks are possible
+==12877== 
+==12877== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--12877-- 
+--12877-- used_suppression:      6 dl-hack3-cond-1 /usr/local/apps/valgrind/3.9.0/lib/valgrind/default.supp:1196
+==12877== 
+==12877== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+  
+$ valgrind --tool=cachegrind ./cache_test 10000
+==12881== Cachegrind, a cache and branch-prediction profiler
+==12881== Copyright (C) 2002-2013, and GNU GPL&#39;d, by Nicholas Nethercote et al.
+==12881== Using Valgrind-3.9.0 and LibVEX; rerun with -h for copyright info
+==12881== Command: ./cache_test 10000
+==12881== 
+--12881-- warning: L3 cache found, using its data for the LL simulation.
+Matrix size:  10000x10000
+==12881== 
+==12881== I   refs:      504,082,163
+==12881== I1  misses:            868
+==12881== LLi misses:            860
+==12881== I1  miss rate:        0.00%
+==12881== LLi miss rate:        0.00%
+==12881== 
+==12881== D   refs:      201,473,856  (100,934,392 rd   + 100,539,464 wr)
+==12881== D1  misses:    112,537,715  ( 12,524,791 rd   + 100,012,924 wr)
+==12881== LLd misses:     97,883,166  (     54,665 rd   +  97,828,501 wr)
+==12881== D1  miss rate:        55.8% (       12.4%     +        99.4%  )
+==12881== LLd miss rate:        48.5% (        0.0%     +        97.3%  )
+==12881== 
+==12881== LL refs:       112,538,583  ( 12,525,659 rd   + 100,012,924 wr)
+==12881== LL misses:      97,884,026  (     55,525 rd   +  97,828,501 wr)
+==12881== LL miss rate:         13.8% (        0.0%     +        97.3%  )</code></pre></div>
+
+<p>First, learn to use debugging and profiling tools.  Two that are supported on Campus Cluster are <code>gdb</code> and <code>valgrind</code>.  <code>gdb</code>, the GNU Debugger, is designed to work with many programming languages besides C, but it can be painful to get it to work with a parallel program.  (Actually, any parallel debugging is uniquely painful.)  Anyway, if you intend to use <code>gdb</code>, you need to compile your code using the <code>-g</code> flag and <code>gcc</code>.</p>
+
+<p>The other tool, <code>valgrind</code>, monitors memory behavior.  It can detect cache misses, memory leaks, and other problems which can lead to poor code performance and excessive memory demand.</p>
+
+<ul>
+<li><p>Develop and use a unit-testing scheme (even a simple one).
+Unit tests are ways of (1) confirming that the code you write runs as it should; and (2) verifying that changes you have made to a function do not break expected functionality.
+Now, formally, you&rsquo;re supposed to write the tests before you write the code, but most of us engineers don&rsquo;t map out our code ahead of time so specifically that that&rsquo;s feasible.  So we&rsquo;ll just look at an example of the type of tests you can do.</p>
+
+<ul>
+<li><p><code>interval</code>
+    git clone <a href="https://github.com/uiuc-cse/interval.git">https://github.com/uiuc-cse/interval.git</a></p></li>
+<li><p><a href="https://scicomp.stackexchange.com/questions/206/is-it-worthwhile-to-write-unit-tests-for-scientific-research-codes">Stack Overflow:  Is it worthwhile to write unit tests for scientific research codes?</a></p></li>
+<li><p><a href="http://check.sourceforge.net/">Check</a> is a unit-testing framework for C code.  </p></li>
+</ul></li>
+</ul>
+
+<h3 id="toc_25">Debugging</h3>
+
+<div style="margin:0; width:100%;text-align:right; font-size:18px;">
+It’s hard enough to find an error in your code when you’re looking for it;<br> its even harder when you’ve _assumed_ your code is _error-free_.
+<p style="text-align:right; margin-top:0;"><b>&mdash; Steve McConnell </b></p>
+</div>
+
+<ul>
+<li><p>Your confusion is a clue that something is wrong—don&rsquo;t ignore it.</p>
+
+<ul>
+<li>  Either your mental model of what the code is doing is wrong;</li>
+<li>  or the model you have built isn&rsquo;t correct for the problem you&rsquo;ve set it.</li>
+</ul></li>
+<li><p><div style="margin:0; width:100%;text-align:right; font-size:18px;">
+Premature optimization is the root of all evil.
+<p style="text-align:right; margin-top:0;"><b>&mdash; Donald Knuth </b></p>
+</div></p></li>
+<li><p><code>gdb</code> is a representative debugger.  Graphical interfaces for this and other tools exist, but behind the scenes they are just interacting with this program.</p></li>
+</ul>
+
+<p><a href="http://xkcd.com/"><img src="http://imgs.xkcd.com/comics/future_self.png" alt=""></a></p>
+
+<ul>
+<li>  Numerical error worksheet (<a href="./numerical-error.ipynb"><code>numerical-error.ipynb</code></a>)</li>
+</ul>
+
+<p><a href="http://cse.illinois.edu/"><img src="https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6" alt=""></a></p>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==n)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(n.call(e,l,e[l],a||l),"Object"!==t.util.type(e[l])||r[e[l]]?"Array"!==t.util.type(e[l])||r[e[l]]||(r[e[l]]=!0,t.languages.DFS(e[l],n,l,r)):(r[e[l]]=!0,t.languages.DFS(e[l],n,null,r)))}},plugins:{},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),l=0;a=r[l++];)t.highlightElement(a,e===!0,n)},highlightElement:function(n,a,r){for(var l,i,o=n;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=t.languages[l]),n.className=n.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=n.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=n.textContent,u={element:n,language:l,grammar:i,code:s};if(!s||!i)return t.hooks.run("complete",u),void 0;if(t.hooks.run("before-highlight",u),a&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){u.highlightedCode=e.data,t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},g.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=t.highlight(u.code,u.grammar,u.language),t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(n),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},highlight:function(e,a,r){var l=t.tokenize(e,a);return n.stringify(t.util.encode(l),r)},tokenize:function(e,n){var a=t.Token,r=[e],l=n.rest;if(l){for(var i in l)n[i]=l[i];delete n.rest}e:for(var i in n)if(n.hasOwnProperty(i)&&n[i]){var o=n[i];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),P=[p,1];b&&P.push(b);var A=new a(i,g?t.tokenize(m,g):m,h);P.push(A),w&&P.push(w),Array.prototype.splice.apply(r,P)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var l={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}t.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code,l=n.immediateClose;_self.postMessage(t.highlight(r,t.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+<script type="text/javascript">
+!function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.hooks.add("complete",function(e){if(e.code){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var n,a=e.code.match(/\n(?!$)/g),l=a?a.length+1:1,m=new Array(l+1);m=m.join("<span></span>"),n=document.createElement("span"),n.className="line-numbers-rows",n.innerHTML=m,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(n)}}})}();
+</script>
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+<script type="text/x-mathjax-config">
+if (typeof MathJaxListener !== 'undefined') {
+  MathJax.Hub.Register.StartupHook('End', function () {
+    MathJaxListener.invokeCallbackForKey_('End');
+  });
+}
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
