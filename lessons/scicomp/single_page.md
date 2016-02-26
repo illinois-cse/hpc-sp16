@@ -335,10 +335,11 @@ Premature optimization is the root of all evil.
 
 [![](http://imgs.xkcd.com/comics/future_self.png)](http://xkcd.com/)
 
--   Numerical error worksheet ([`numerical-error.ipynb`](https://github.com/maxim-belkin/hpc-sp16/raw/gh-pages/lessons/scicomp/numerical-error.ipynb))
-To enable jupyter notebook:<br>
+-   Numerical error worksheet `numerical-error.ipynb`.
+To start jupyter notebook:<br>
 
 ```
+wget https://github.com/maxim-belkin/hpc-sp16/raw/gh-pages/lessons/scicomp/numerical-error.ipynb
 source /class/cs101/etc/venv/cse/bin/activate /class/cs101/etc/venv/cse/
 jupyter notebook
 ```
