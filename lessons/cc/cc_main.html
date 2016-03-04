@@ -1,0 +1,766 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>cc_main</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+</head>
+<body>
+<p><a href="http://cse.illinois.edu/"><img src="https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6" alt=""></a></p>
+
+<h1 id="toc_0">Illinois CampusCluster</h1>
+
+<p>This workshop is designed to acquaint you with working on a high-performance computing cluster, or modern-day supercomputer.  We will specifically talk about using the University of Illinois Campus Cluster system, although most of this information is transferrable to other clusters. </p>
+
+<p><br></p>
+
+<h3 id="toc_1">What is Campus Cluster?</h3>
+
+<p><a href="http://campuscluster.illinois.edu"><u>Campus Cluster</u></a> is a campuswide resource for high-performance computing located on the University of Illinois at Urbana-Champaign, consisting of several clusters available to researchers, students, and investors.</p>
+
+<p><img src="./img/cluster.svg" alt=""></p>
+
+<p>A cluster is typically organized as a group of connected computer <u>nodes</u>, or processing units with memory and network access (basically all modern supercomputers are clusters<sup><a href="http://www.top500.org/lists/2015/11/">Top500</a></sup> ). A node is much like your laptop or desktop machine, except instead of communicating with the outside world through a keyboard or monitor it only has a network connection. These network connections are used to coordinate processes running across groups of nodes as so-called parallel programs.</p>
+
+<p>To access a cluster, you use a program called a <u>shell</u>. Typically, a shell consists of a command line which allows you precise control over the tasks you invoke, the jobs you run, and the files you create.  If you&rsquo;ve worked on a GNU/Linux system before, this should be a familiar concept to you; if not there are various online resources on using shell, including our first workshop. </p>
+
+<p>The shell allows you to access the <u>head nodes</u>, which are the public interface to the cluster.  From these head nodes, you can submit lengthy and computationally intensive <u>jobs</u> to the <u>compute nodes</u>, which carry out the massively parallel calculations necessary for your research.</p>
+
+<p>A job or <u>batch file</u> is simply a short script of the commands necessary to run your code.  The compute nodes can then set up the libraries and environment necessary for execution and carry out the calculation.  The script can also instruct the cluster what to do with the results of the calculations.</p>
+
+<p>In addition, a file system is attached for the storage of programs and data over the short and long term.</p>
+
+<h2 id="toc_2">Getting Started</h2>
+
+<p>In order to use Campus Cluster, you need: computer with internet access, a <u>user account</u> on the Campus Cluster, and a <u>shell</u> (or its emulator if you are on a Windows machine).</p>
+
+<h3 id="toc_3">User Accounts</h3>
+
+<p>If you do not have a user account yet, you are free to use a training guest account from the list below.  (These are sandboxed accounts which have restricted privileges, but can be used to complete the exercises in this workshop.)</p>
+
+<p>If you would like a personal account, you can obtain one through your research group (if your advisor has become an investor in the Campus Cluster program) or through the <a href="http://cse.illinois.edu">Computational Science and Engineering</a> program (contact <a href="mailto:cse@cse.illinois.edu">cse@cse.illinois.edu</a> for more information).</p>
+
+<h3 id="toc_4">Shell</h3>
+
+<p>Depending on your computer&rsquo;s operating system, a few options are available to you.</p>
+
+<ul>
+<li><p><strong>Windows</strong>:  While the command prompt is inadequate (since it supports DOS-like instead of Unix-like commands), a number of options are available on Windows.</p>
+
+<ul>
+<li>  <a href="http://mobaxterm.mobatek.net/">MobaXTerm</a> is a clean and simple client for connecting to remote servers.  This is our recommendation if you need to use Campus Cluster from a Windows-based machine.</li>
+<li>  <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/">PuTTY</a> is the classic standard for secure shell access on Windows.  (Be careful, however:  there is a malicious version online as well<sup><a href="http://securityaffairs.co/wordpress/37013/cyber-crime/malicious-putty-in-the-wild.html">[Paganini2015]</a></sup>!)</li>
+<li>  <a href="https://www.cygwin.com/">Cygwin</a> is a powerful recreation of Unix-like system features on a Windows machine, but is overkill if all you require is secure shell access to a remote cluster.</li>
+<li>  <a href="https://technet.microsoft.com/en-us/library/ee221100.aspx">PowerShell</a> has the advantage of being built into Windows out of the box, but has an unusual syntax that is incompatible with learning a Unix-like shell.  Feel free to explore this option (since it is quite powerful), but we won&rsquo;t address it further in this document.</li>
+</ul></li>
+<li><p><strong>Mac OS X</strong>:  You need to access the Terminal.  Press <code>⌘</code><code>Space</code> to open Spotlight and then type <code>terminal</code>.  Press <code>Return</code> to open the highlighted application.
+<img src="./img/spotlight.png" alt=""></p></li>
+<li><p><strong>Linux</strong>:  You&rsquo;re good to go.  Just find the <q>command line</q> or <q>terminal</q> option in your menu.  If it&rsquo;s not on the menu bar itself, take a look under <q>Applications</q> or the equivalent menu.</p></li>
+</ul>
+
+<blockquote>
+<p>Although there are subtle differences, you will often hear <q>terminal</q>, <q>command line</q>, <q>shell</q>, <q>prompt</q>, and <q>bash</q> used interchangeably.</p>
+</blockquote>
+
+<p>Once you have a shell open, it&rsquo;s time to log in for a first look at the cluster environment.</p>
+
+<h3 id="toc_5">Logging On</h3>
+
+<p>In your command window, you will see a <u>prompt</u> which looks something like <code>yourusername@machine:directory $</code>. (There are a lot of variations on this.)</p>
+
+<p>After the <code>$</code>, type <code>ssh &lt;user&gt;@cc-login.campuscluster.illinois.edu</code>, where <code>&lt;user&gt;</code> is replaced by the actual user name of the account you are using to access the cluster, for the campus cluster this is most likely your NetID.</p>
+
+<div><pre class="line-numbers"><code class="language-bash">$ ssh NetID@cc-login.campuscluster.illinois.edu
+NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
+
+<p>The machine will ask you for a password in response; enter the associated password and press <code>Return</code>. Additionally, sometimes the machine will ask you a question about <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA security</a> which you can answer <code>yes</code> to; this should only happen once on a given machine. Other machines, like Blue Waters, will have added securitity features like one-time passwords. </p>
+
+<p>You should now be logged in.  What this means is that commands you enter into this shell are interpreted not by your home machine, but by the remote cluster&rsquo;s login nodes.</p>
+
+<p>(If you are having difficulty with the password after a couple of tries, please contact <a href="mailto:help@campuscluster.illinois.edu">help@campuscluster.illinois.edu</a>.)</p>
+
+<h3 id="toc_6">First Look Around</h3>
+
+<p>A rather long-winded message appears, nominally welcoming you to the cluster but also including a number of warnings about disk space usage and proper etiquette on the login nodes.  URLs for resources such as a <a href="https://campuscluster.illinois.edu/forum/">user forum</a> and a <a href="https://campuscluster.illinois.edu/user_info/doc/beginner.html">beginner&rsquo;s guide</a> are also listed, and you should take a look at those at your leisure in the future as they answer many specific questions this document doesn&rsquo;t have space to address.</p>
+
+<p>Your shell is now logically situated in your <u>home directory</u>, which is represented by the shorthand <code>~</code>.  If you type <code>pwd</code>, short for <q><strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory</q>, then you can see exactly where that home directory is located with respect to the root directory <code>/</code>.  If you type <code>ls</code>, the files in your home directory will be <strong>l</strong>i<strong>s</strong>ted for you.</p>
+
+<p>Other standard shell commands are available as well.  If you are familiar with these, you can play around a little now; otherwise, please check out the first workshop in this series on bash. In any case, when you are done, type <code>exit</code> at the prompt to leave Campus Cluster and return to the context of your home machine.</p>
+
+<h2 id="toc_7">Environment</h2>
+
+<p>The environment around any campus cluster is similar to that of any linux system. In this case you&rsquo;re logging into a computer through a network. Otherwise the same rules apply. (In order to effectively learn the shell, check out SWC, HPCUniversity, etc.)</p>
+
+<h3 id="toc_8">Looking and Moving Around</h3>
+
+<p>Once you&rsquo;re logged on you will notice that the same shell commands apply. Typing <code>pwd</code> wil still print the working directory, <code>ls</code> will still list the directory contents. Likewise if you want to change the directory you can type <code>cd</code> etc. </p>
+
+<p>The main difference is that you are now working on a remote computer. Notice that you typed <code>ssh</code>, or <strong>s</strong>ecure <strong>sh</strong>ell, to log on to the campus cluster. This is just allows you to connect securely to a networked machine over an unsecure network. In order to exit the campus cluster you just type <code>exit</code>. If you are on a Windows machine make sure you click on the <code>ssh</code> option under <code>connection type</code> and type in the host name (cc-login.campuscluster.illinois.edu)</p>
+
+<h3 id="toc_9">Filesystem</h3>
+
+<p>Once you&rsquo;re inside your home directory on the campus cluster you&rsquo;ll notice that you have a couple of folders. Generally there is a 2GB quota on your <code>/home</code> direcotry with a 4GB hard limit. Another important directory you should notice is the <code>/scratch</code> directory. This directory has a much larger storage and is generally used to run your code in and store your (probably large) output files. </p>
+
+<p>Since you&rsquo;re running your code on a networked machine you simply cannot click and drop files into your <code>scratch</code> folder from your laptop or desktop machines. To move files to and from the campus cluster you can use the command <code>scp</code> and it can be used in numerous ways with the two most common being:</p>
+
+<p>Copy file from remote host to local host</p>
+
+<div><pre class="line-numbers"><code class="language-bash">$ scp NetID@cc-login.campuscluster.illinois.edu:file1.txt /some/local/directory</code></pre></div>
+
+<p>Copy file from local host to remote host</p>
+
+<div><pre class="line-numbers"><code class="language-bash">$ scp file1.txt NetID@cc-login.campuscluster.illinois.edu:/some/remote/directory</code></pre></div>
+
+<p>If you are moving dozens of very large data files this process can be very slow. To help speedup the process you can use file transfer protocol software such as Filezilla, gFTP, etc. </p>
+
+<h3 id="toc_10">Modules</h3>
+
+<p>Sometimes the environment that a researcher doing molecular dynamics is quite different from a that of someone doing computational fluid dynamics. To modify your environment variables you can use the <code>module</code> command. To print the list of current modules you can use the <code>module list</code> command. If you want to load a module that you do not currently have you can use the <code>module load</code> command, such as:</p>
+
+<div><pre class="line-numbers"><code class="language-bash">$ module load mvapich2/2.0b-intel-14.0</code></pre></div>
+
+<p>You can also load your modules by editing your <code>.bash_rc</code> file. </p>
+
+<h2 id="toc_11">Running Code</h2>
+
+<p>We will use example codes obtained as follows to illustrate compiling, queueing, and running code on Campus Cluster.</p>
+
+<div><pre class="line-numbers"><code class="language-bash">$ cp ~ccp-csetraining01/SOURCE/hpc-code-examples.tar.gz
+$ tar -xvzf hpc-code-examples
+$ module load gcc</code></pre></div>
+
+<h3 id="toc_12">Queueing</h3>
+
+<p>Fairshare queuing divides requested resources among system users or groups (rather than just between processes).  It incorporates the historic behavior of a user and group into job priority decisionmaking.  In principle, this allows groups and users to fairly access the resource.  However, this can be frustrating for a new user to understand, particularly when one has a number of jobs in the queue and it takes a long time for them to run.</p>
+
+<p>Campus Cluster operations model:  all buy nodes have guaranteed access, but available otherwise</p>
+
+<p>The following command are the basic batch job commands to submit, check on, or delete a batch job on the campus cluster. </p>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>qsub</td>
+<td>submit batch job</td>
+</tr>
+<tr>
+<td>qstat</td>
+<td>query status of batch job</td>
+</tr>
+<tr>
+<td>qpeek</td>
+<td>view stdout and stderr of job</td>
+</tr>
+<tr>
+<td>qdel</td>
+<td>delete bactch job</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_13">Compiling</h3>
+
+<p>If you&rsquo;re writing scientific code, you&rsquo;re almost definitely using C/C++, Fortran, or Python, so it behooves us to check and see what the options for those are.</p>
+
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Compilers</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>C/C++</td>
+<td><code>icc</code>/<code>icpc</code> and <code>gcc</code>/<code>g++</code></td>
+</tr>
+<tr>
+<td>Fortran</td>
+<td><code>ifort</code> and <code>gfortran</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Python 2.7.8 and 3.4.1 are both available, plus legacy versions. The latest versions are always preferred for compiling new programs. Libraries are also available; for instance, the Intel MKL. You can see what is required to compile with it on a specific system using the <a href="https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/">command-line flag tool</a>.</p>
+
+<h3 id="toc_14">Installing</h3>
+
+<p>As you do not have administrator privileges on Campus Cluster, you won&rsquo;t be able to <code>make install</code> your software.  You have two options:</p>
+
+<ul>
+<li>  Set up a <q>local</q> installation for yourself:  create and add to your <code>$PATH</code> appropriate directories like <code>~/bin</code>.</li>
+<li>  Create a group-wide installation if you are part of a research group and can maintain the software. Click on this <a href="https://campuscluster.illinois.edu/user_info/doc/software_guidelines.html">guide</a> for more information on this. </li>
+<li>  Subsequent to a successful installation, you can create a <code>modulefile</code> which works with <code>module</code> to update the environment for other users of your software application.</li>
+</ul>
+
+<p>This machine was jointly purchased by many investors, who each contributed an amount to the total capital hardware investment and are thus entitled to a perpetual share of the available computational power.</p>
+
+<h2 id="toc_15">A Friendlier Campus Cluster</h2>
+
+<p>You can modify your <code>.bash_profile</code> file to include things like color in your directory listing or shorten some commands. For example you can write </p>
+
+<div><pre class="line-numbers"><code class="language-bash">    # .bash_profile
+    
+    alias ls=&#39;ls --color=auto&#39;
+    alias q=&quot;qstat -u $USER&quot;</code></pre></div>
+
+<p>Preventative maintenance (PM) is scheduled for the third Wednesday of each month. Long jobs submitted just prior to this time cannot run until afterwards.</p>
+
+<p>You can install your own software by createing local paths for <code>~/bin</code>, <code>~/.local</code>, etc.</p>
+
+<p>For more campus cluster user resources you can visit the Illinois Campus Cluster Program <a href="https://campuscluster.illinois.edu">website</a>. Here you will find a beginner&rsquo;s guide, user&rsquo;s guide, FAQs, as well as user forums. </p>
+
+<ul>
+<li>  <a href="https://github.com/uiuc-cse/hpc-sp15/raw/gh-pages/lessons/hpc-handout.pdf">Summary Handout</a></li>
+</ul>
+
+<h2 id="toc_16">Credits</h2>
+
+<p>Neal Davis developed these materials for <a href="http://cse.illinois.edu/">Computational Science and Engineering</a> at the University of Illinois at Urbana–Champaign.  Some tips were suggested by Jay Alameda and Mark van Moers of NCSA.  In addition, the support of NCSA and Campus Cluster personnel such as Wayne Hoyenga, Martin Biernat, and Kandace Turner-Jones, has also been invaluable.</p>
+
+<p><img src="http://i.creativecommons.org/l/by/4.0/88x31.png" align="left">
+This content is available under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 Unported License</a>.</p>
+
+<p><a href="http://cse.illinois.edu/"><img src="https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6" alt=""></a></p>
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(?!\*)(\w+)\b/i,t=_self.Prism={util:{encode:function(e){return e instanceof n?new n(e.type,t.util.encode(e.content),e.alias):"Array"===t.util.type(e)?e.map(t.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},clone:function(e){var n=t.util.type(e);switch(n){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=t.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return t.util.clone(e)})}return e}},languages:{extend:function(e,n){var a=t.util.clone(t.languages[e]);for(var r in n)a[r]=n[r];return a},insertBefore:function(e,n,a,r){r=r||t.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==n)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return t.languages.DFS(t.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,n,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(n.call(e,l,e[l],a||l),"Object"!==t.util.type(e[l])||r[e[l]]?"Array"!==t.util.type(e[l])||r[e[l]]||(r[e[l]]=!0,t.languages.DFS(e[l],n,l,r)):(r[e[l]]=!0,t.languages.DFS(e[l],n,null,r)))}},plugins:{},highlightAll:function(e,n){for(var a,r=document.querySelectorAll('code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'),l=0;a=r[l++];)t.highlightElement(a,e===!0,n)},highlightElement:function(n,a,r){for(var l,i,o=n;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=t.languages[l]),n.className=n.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=n.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=n.textContent,u={element:n,language:l,grammar:i,code:s};if(!s||!i)return t.hooks.run("complete",u),void 0;if(t.hooks.run("before-highlight",u),a&&_self.Worker){var g=new Worker(t.filename);g.onmessage=function(e){u.highlightedCode=e.data,t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},g.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=t.highlight(u.code,u.grammar,u.language),t.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(n),t.hooks.run("after-highlight",u),t.hooks.run("complete",u)},highlight:function(e,a,r){var l=t.tokenize(e,a);return n.stringify(t.util.encode(l),r)},tokenize:function(e,n){var a=t.Token,r=[e],l=n.rest;if(l){for(var i in l)n[i]=l[i];delete n.rest}e:for(var i in n)if(n.hasOwnProperty(i)&&n[i]){var o=n[i];o="Array"===t.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],g=u.inside,c=!!u.lookbehind,f=0,h=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var d=r[p];if(r.length>e.length)break e;if(!(d instanceof a)){u.lastIndex=0;var m=u.exec(d);if(m){c&&(f=m[1].length);var y=m.index-1+f,m=m[0].slice(f),v=m.length,k=y+v,b=d.slice(0,y+1),w=d.slice(k+1),P=[p,1];b&&P.push(b);var A=new a(i,g?t.tokenize(m,g):m,h);P.push(A),w&&P.push(w),Array.prototype.splice.apply(r,P)}}}}}return r},hooks:{all:{},add:function(e,n){var a=t.hooks.all;a[e]=a[e]||[],a[e].push(n)},run:function(e,n){var a=t.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(n)}}},n=t.Token=function(e,t,n){this.type=e,this.content=t,this.alias=n};if(n.stringify=function(e,a,r){if("string"==typeof e)return e;if("Array"===t.util.type(e))return e.map(function(t){return n.stringify(t,a,e)}).join("");var l={type:e.type,content:n.stringify(e.content,a,r),tag:"span",classes:["token",e.type],attributes:{},language:a,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===t.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}t.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var n=JSON.parse(e.data),a=n.language,r=n.code,l=n.immediateClose;_self.postMessage(t.highlight(r,t.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var a=document.getElementsByTagName("script");return a=a[a.length-1],a&&(t.filename=a.src,document.addEventListener&&!a.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",t.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+<script type="text/javascript">
+!function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/("|')(?:\\?[\s\S])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+<script type="text/javascript">
+!function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.hooks.add("complete",function(e){if(e.code){var t=e.element.parentNode,s=/\s*\bline-numbers\b\s*/;if(t&&/pre/i.test(t.nodeName)&&(s.test(t.className)||s.test(e.element.className))&&!e.element.querySelector(".line-numbers-rows")){s.test(e.element.className)&&(e.element.className=e.element.className.replace(s,"")),s.test(t.className)||(t.className+=" line-numbers");var n,a=e.code.match(/\n(?!$)/g),l=a?a.length+1:1,m=new Array(l+1);m=m.join("<span></span>"),n=document.createElement("span"),n.className="line-numbers-rows",n.innerHTML=m,t.hasAttribute("data-start")&&(t.style.counterReset="linenumber "+(parseInt(t.getAttribute("data-start"),10)-1)),e.element.appendChild(n)}}})}();
+</script>
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+<script type="text/x-mathjax-config">
+if (typeof MathJaxListener !== 'undefined') {
+  MathJax.Hub.Register.StartupHook('End', function () {
+    MathJaxListener.invokeCallbackForKey_('End');
+  });
+}
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
