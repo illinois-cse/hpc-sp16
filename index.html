@@ -99,20 +99,35 @@ Exercises:
 <h1>
 <a id="parallel-threads-for-engineers-openmp" class="anchor" href="#parallel-threads-for-engineers-openmp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parallel Threads for Engineers (OpenMP)<br><font style="font-size:70%;">Mar. 11, 10:00 a.m.-Noon</font></h1>
 
-<p><a href="http://openmp.org/wp/">OpenMP</a> is a set of extensions to the C, C++, and Fortran languages to allow the effective control of multiple cores on shared-memory machines, such as desktop computers or single nodes of supercomputers.  With a few well-placed annotations and some judicious restructuring of your current code, you can start seeing speedups from effectively using multiple processes immediately.  We will discuss the basics of OpenMP and examine some applications as well.  Programming experience with C or C++ is assumed.</p>
+<p><a href="http://openmp.org/wp/">OpenMP</a> is a set of extensions to the C, C++, and Fortran languages to allow the effective control of multiple cores on shared-memory machines, such as desktop computers or single nodes of supercomputers.  With a few well-placed <i>annotations</i> and some judicious restructuring of your current code, you can start seeing speedups from effectively using multiple processes immediately.  We will discuss the basics of OpenMP and examine some applications as well.  Programming experience with C or C++ is assumed.</p>
 
-<p>To use the interactive notebook, please open a terminal and execute the commands:</p>
+<h4>Before the workshop:</h4>
 
-<pre><code>    cd ~/Desktop
-    module load gcc
-    source /class/cs101/etc/venv/cse/bin/activate /class/cs101/etc/venv/cse/
-    ipython notebook omp-c.ipynb
-</code></pre>
+<p>If you are using a personal laptop computer running OS X operating system, you have to install GNU GCC without multilib support. The reason behind this is that <i>clang</i> &mdash; the default compiler on a Mac computer &mdash; does not support OpenMP. Moreover, <i>gcc</i> is just a symbolic link to <i>clang</i>. The easiest way to install GNU GCC is to use <a href="http://brew.sh" title="HomebrewHomePage">Homebrew</a>:</p>
+<pre>
+<code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor  ; # fix as many errors/warnings as possible
+brew install gcc --without-multilib</code></pre>
 
+Download the interactive notebook used in this lesson and note its location on the drive.
 <ul>
-	<li><a href="https://raw.githubusercontent.com/maxim-belkin/hpc-sp16/gh-pages/lessons/openmp/omp-c.ipynb">Interactive notes</a></li>
+	<li><a href="https://raw.githubusercontent.com/maxim-belkin/hpc-sp16/gh-pages/lessons/openmp/omp-c.ipynb" download target="_blank">Interactive notebook</a></li>
 	<li><a href="http://nbviewer.ipython.org/github/maxim-belkin/hpc-fa15/blob/gh-pages/lessons/omp-c.ipynb">Static view</a></li>
 </ul>
+
+
+<p> To use the interactive notebook on your personal laptop computer, you need <a href="https://www.python.org/downloads/">Python</a> (Python 3 is preferred) as will as one of its packages: <i>jupyter</i> or <i>ipython</i>.  To install jupyter, open a terminal and execute:</p>
+<pre><code>pip3 install jupyter</code></pre>
+
+<p>To use the interactive notebook on a EWS machine, open a terminal, navigate to the folder with the downloaded notebook file and execute the commands:</p>
+
+<pre><code>module load gcc
+source /class/cs101/etc/venv/cse/bin/activate /class/cs101/etc/venv/cse/
+</code></pre>
+
+To start the noteboook, execute:
+<pre><code>jupyter notebook omp-c.ipynb
+</code></pre>
 
 <!--
 <h2>
