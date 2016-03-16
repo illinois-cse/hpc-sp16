@@ -6,7 +6,7 @@
 <style type="text/css">
 body {
   font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -520,12 +520,6 @@ div.prism-show-language > div.prism-show-language-label {
 
 <h1 id="toc_0">Illinois CampusCluster</h1>
 
-<p>This workshop is designed to acquaint you with working on a high-performance computing cluster, or modern-day supercomputer.  We will specifically talk about using the University of Illinois Campus Cluster system, although most of this information is transferrable to other clusters. </p>
-
-<p><br></p>
-
-<h3 id="toc_1">What is Campus Cluster?</h3>
-
 <p><a href="http://campuscluster.illinois.edu"><u>Campus Cluster</u></a> is a campuswide resource for high-performance computing located on the University of Illinois at Urbana-Champaign, consisting of several clusters available to researchers, students, and investors.</p>
 
 <p><img src="./img/cluster.svg" alt=""></p>
@@ -540,17 +534,17 @@ div.prism-show-language > div.prism-show-language-label {
 
 <p>In addition, a file system is attached for the storage of programs and data over the short and long term.</p>
 
-<h2 id="toc_2">Getting Started</h2>
+<h2 id="toc_1">Getting Started</h2>
 
 <p>In order to use Campus Cluster, you need: computer with internet access, a <u>user account</u> on the Campus Cluster, and a <u>shell</u> (or its emulator if you are on a Windows machine).</p>
 
-<h3 id="toc_3">User Accounts</h3>
+<h3 id="toc_2">User Accounts</h3>
 
 <p>If you do not have a user account yet, you are free to use a training guest account from the list below.  (These are sandboxed accounts which have restricted privileges, but can be used to complete the exercises in this workshop.)</p>
 
 <p>If you would like a personal account, you can obtain one through your research group (if your advisor has become an investor in the Campus Cluster program) or through the <a href="http://cse.illinois.edu">Computational Science and Engineering</a> program (contact <a href="mailto:cse@cse.illinois.edu">cse@cse.illinois.edu</a> for more information).</p>
 
-<h3 id="toc_4">Shell</h3>
+<h3 id="toc_3">Shell</h3>
 
 <p>Depending on your computer&rsquo;s operating system, a few options are available to you.</p>
 
@@ -574,7 +568,7 @@ div.prism-show-language > div.prism-show-language-label {
 
 <p>Once you have a shell open, it&rsquo;s time to log in for a first look at the cluster environment.</p>
 
-<h3 id="toc_5">Logging On</h3>
+<h3 id="toc_4">Logging On</h3>
 
 <p>In your command window, you will see a <u>prompt</u> which looks something like <code>yourusername@machine:directory $</code>. (There are a lot of variations on this.)</p>
 
@@ -589,7 +583,7 @@ NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
 
 <p>(If you are having difficulty with the password after a couple of tries, please contact <a href="mailto:help@campuscluster.illinois.edu">help@campuscluster.illinois.edu</a>.)</p>
 
-<h3 id="toc_6">First Look Around</h3>
+<h3 id="toc_5">First Look Around</h3>
 
 <p>A rather long-winded message appears, nominally welcoming you to the cluster but also including a number of warnings about disk space usage and proper etiquette on the login nodes.  URLs for resources such as a <a href="https://campuscluster.illinois.edu/forum/">user forum</a> and a <a href="https://campuscluster.illinois.edu/user_info/doc/beginner.html">beginner&rsquo;s guide</a> are also listed, and you should take a look at those at your leisure in the future as they answer many specific questions this document doesn&rsquo;t have space to address.</p>
 
@@ -597,17 +591,17 @@ NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
 
 <p>Other standard shell commands are available as well.  If you are familiar with these, you can play around a little now; otherwise, please check out the first workshop in this series on bash. In any case, when you are done, type <code>exit</code> at the prompt to leave Campus Cluster and return to the context of your home machine.</p>
 
-<h2 id="toc_7">Environment</h2>
+<h2 id="toc_6">Environment</h2>
 
 <p>The environment around any campus cluster is similar to that of any linux system. In this case you&rsquo;re logging into a computer through a network. Otherwise the same rules apply. (In order to effectively learn the shell, check out SWC, HPCUniversity, etc.)</p>
 
-<h3 id="toc_8">Looking and Moving Around</h3>
+<h3 id="toc_7">Looking and Moving Around</h3>
 
 <p>Once you&rsquo;re logged on you will notice that the same shell commands apply. Typing <code>pwd</code> wil still print the working directory, <code>ls</code> will still list the directory contents. Likewise if you want to change the directory you can type <code>cd</code> etc. </p>
 
 <p>The main difference is that you are now working on a remote computer. Notice that you typed <code>ssh</code>, or <strong>s</strong>ecure <strong>sh</strong>ell, to log on to the campus cluster. This is just allows you to connect securely to a networked machine over an unsecure network. In order to exit the campus cluster you just type <code>exit</code>. If you are on a Windows machine make sure you click on the <code>ssh</code> option under <code>connection type</code> and type in the host name (cc-login.campuscluster.illinois.edu)</p>
 
-<h3 id="toc_9">Filesystem</h3>
+<h3 id="toc_8">Filesystem</h3>
 
 <p>Once you&rsquo;re inside your home directory on the campus cluster you&rsquo;ll notice that you have a couple of folders. Generally there is a 2GB quota on your <code>/home</code> direcotry with a 4GB hard limit. Another important directory you should notice is the <code>/scratch</code> directory. This directory has a much larger storage and is generally used to run your code in and store your (probably large) output files. </p>
 
@@ -623,7 +617,7 @@ NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
 
 <p>If you are moving dozens of very large data files this process can be very slow. To help speedup the process you can use file transfer protocol software such as Filezilla, gFTP, etc. </p>
 
-<h3 id="toc_10">Modules</h3>
+<h3 id="toc_9">Modules</h3>
 
 <p>Sometimes the environment that a researcher doing molecular dynamics is quite different from a that of someone doing computational fluid dynamics. To modify your environment variables you can use the <code>module</code> command. To print the list of current modules you can use the <code>module list</code> command. If you want to load a module that you do not currently have you can use the <code>module load</code> command, such as:</p>
 
@@ -631,7 +625,7 @@ NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
 
 <p>You can also load your modules by editing your <code>.bash_rc</code> file. </p>
 
-<h2 id="toc_11">Running Code</h2>
+<h2 id="toc_10">Running Code</h2>
 
 <p>We will use example codes obtained as follows to illustrate compiling, queueing, and running code on Campus Cluster.</p>
 
@@ -639,7 +633,7 @@ NetID@cc-login.campuscluster.illinois.edu&#39;s password: </code></pre></div>
 $ tar -xvzf hpc-code-examples
 $ module load gcc</code></pre></div>
 
-<h3 id="toc_12">Queueing</h3>
+<h3 id="toc_11">Queueing</h3>
 
 <p>Fairshare queuing divides requested resources among system users or groups (rather than just between processes).  It incorporates the historic behavior of a user and group into job priority decisionmaking.  In principle, this allows groups and users to fairly access the resource.  However, this can be frustrating for a new user to understand, particularly when one has a number of jobs in the queue and it takes a long time for them to run.</p>
 
@@ -675,7 +669,7 @@ $ module load gcc</code></pre></div>
 </tbody>
 </table>
 
-<h3 id="toc_13">Compiling</h3>
+<h3 id="toc_12">Compiling</h3>
 
 <p>If you&rsquo;re writing scientific code, you&rsquo;re almost definitely using C/C++, Fortran, or Python, so it behooves us to check and see what the options for those are.</p>
 
@@ -701,7 +695,7 @@ $ module load gcc</code></pre></div>
 
 <p>Python 2.7.8 and 3.4.1 are both available, plus legacy versions. The latest versions are always preferred for compiling new programs. Libraries are also available; for instance, the Intel MKL. You can see what is required to compile with it on a specific system using the <a href="https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor/">command-line flag tool</a>.</p>
 
-<h3 id="toc_14">Installing</h3>
+<h3 id="toc_13">Installing</h3>
 
 <p>As you do not have administrator privileges on Campus Cluster, you won&rsquo;t be able to <code>make install</code> your software.  You have two options:</p>
 
@@ -713,7 +707,7 @@ $ module load gcc</code></pre></div>
 
 <p>This machine was jointly purchased by many investors, who each contributed an amount to the total capital hardware investment and are thus entitled to a perpetual share of the available computational power.</p>
 
-<h2 id="toc_15">A Friendlier Campus Cluster</h2>
+<h2 id="toc_14">A Friendlier Campus Cluster</h2>
 
 <p>You can modify your <code>.bash_profile</code> file to include things like color in your directory listing or shorten some commands. For example you can write </p>
 
@@ -732,7 +726,7 @@ $ module load gcc</code></pre></div>
 <li>  <a href="https://github.com/uiuc-cse/hpc-sp15/raw/gh-pages/lessons/hpc-handout.pdf">Summary Handout</a></li>
 </ul>
 
-<h2 id="toc_16">Credits</h2>
+<h2 id="toc_15">Credits</h2>
 
 <p>Neal Davis developed these materials for <a href="http://cse.illinois.edu/">Computational Science and Engineering</a> at the University of Illinois at Urbana–Champaign.  Some tips were suggested by Jay Alameda and Mark van Moers of NCSA.  In addition, the support of NCSA and Campus Cluster personnel such as Wayne Hoyenga, Martin Biernat, and Kandace Turner-Jones, has also been invaluable.</p>
 

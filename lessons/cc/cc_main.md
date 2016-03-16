@@ -3,12 +3,6 @@
 # Illinois CampusCluster
 
 
-This workshop is designed to acquaint you with working on a high-performance computing cluster, or modern-day supercomputer.  We will specifically talk about using the University of Illinois Campus Cluster system, although most of this information is transferrable to other clusters. 
-
-<br>
-
-### What is Campus Cluster?
-
 [_Campus Cluster_](http://campuscluster.illinois.edu) is a campuswide resource for high-performance computing located on the University of Illinois at Urbana-Champaign, consisting of several clusters available to researchers, students, and investors.
 
 ![](./img/cluster.svg)
