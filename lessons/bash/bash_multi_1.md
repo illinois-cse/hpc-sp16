@@ -1,7 +1,15 @@
 [![](https://bytebucket.org/davis68/resources/raw/f7c98d2b95e961fae257707e22a58fa1a2c36bec/logos/baseline_cse_wdmk.png?token=be4cc41d4b2afe594f5b1570a3c5aad96a65f0d6)](http://cse.illinois.edu/training)
 
 ## <a name="intro"></a><a href="#contents" style="text-decoration:none; color:black;">Introduction</a>
-A shell is a program that let's the user interact with the operating system through a command line. While most computers have graphical user interfaces (GUI), shells only have a textual interface. The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines. There are various shell programs out there with the most common one being Bash (**B**ourne **A**gain **SH**ell). To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line: 
+A **shell** is a computer program that let's the user interact with the operating system through a set of *commands*.
+The user must type the commands and send them for execution by pressing the `Enter` key.
+The commands are usually typed in a the so-called **command line**.
+<!--While most computers have graphical user interfaces (GUI), shells only have a textual interface.
+The textual interface may seem cryptic at first but it can be very useful due to its high action-to-keystroke ratio, its support for automating reportetitive tasks, and it can also access networked machines.
+-->
+There is a number of shell programs out there.
+The most popular one is **Bash**, which stands for **B**ourne **A**gain **SH**ell -- the successor of and replacement for the Bourne Shell.
+To begin, let's figure out which shell we are using by typing `echo $SHELL` in the command line:
 
 	$ echo $SHELL
 	/bin/bash
